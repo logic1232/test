@@ -33,6 +33,12 @@ extern "C" {
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
+#define LED_waring_OFF  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,GPIO_PIN_SET);
+#define LED_waring_ON  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,GPIO_PIN_RESET);
+#define LED_normal_OFF   HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,GPIO_PIN_SET);	
+#define LED_normal_ON   HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,GPIO_PIN_RESET);
+#define LED_bad_OFF     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_SET);
+#define LED_bad_ON     HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_RESET);
 #define KEY_UP       HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)   
 #define KEY_DOWN          HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) 
 #define KEY_LEFT         HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8)

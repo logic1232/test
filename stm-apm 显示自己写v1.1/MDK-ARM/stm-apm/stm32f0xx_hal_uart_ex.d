@@ -6,14 +6,14 @@ stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030xc.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/CMSIS/Include/core_cm0.h
-stm-apm\stm32f0xx_hal_uart_ex.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+stm-apm\stm32f0xx_hal_uart_ex.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/CMSIS/Include/cmsis_version.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-stm-apm\stm32f0xx_hal_uart_ex.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
+stm-apm\stm32f0xx_hal_uart_ex.o: D:\keil\ARM\ARMCC\Bin\..\include\stddef.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h
 stm-apm\stm32f0xx_hal_uart_ex.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h

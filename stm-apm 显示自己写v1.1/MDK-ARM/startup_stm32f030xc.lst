@@ -365,11 +365,11 @@ ARM Macro Assembler    Page 6
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0+ --apcs=inter
 work --depend=stm-apm\startup_stm32f030xc.d -ostm-apm\startup_stm32f030xc.o -I.
-\RTE\_stm-apm -I"D:\keil 5\ARM\CMSIS\5.7.0\CMSIS\Core\Include" -I"D:\keil 5\Gee
-hy\APM32F0xx_DFP\1.0.7\Device\Device\Geehy\APM32F0xx\Include" --predefine="__UV
-ISION_VERSION SETA 532" --predefine="_RTE_ SETA 1" --predefine="APM32F030XC SET
-A 1" --predefine="_RTE_ SETA 1" --list=startup_stm32f030xc.lst startup_stm32f03
-0xc.s
+\RTE\_stm-apm -ID:\keil\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include -ID:\keil\Pack
+s\Geehy\APM32F0xx_DFP\1.0.9\Device\Device\Geehy\APM32F0xx\Include --predefine="
+__UVISION_VERSION SETA 539" --predefine="_RTE_ SETA 1" --predefine="APM32F030XC
+ SETA 1" --predefine="_RTE_ SETA 1" --list=startup_stm32f030xc.lst startup_stm3
+2f030xc.s
 
 
 

@@ -1,14 +1,14 @@
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\lv_btn.c
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\lv_btn.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../../../lv_conf.h
-stm-apm\lv_btn.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+stm-apm\lv_btn.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../../../lvgl/src/lv_conf_checker.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\lv_cont.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../../../lv_conf.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/lv_obj.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/../../../lv_conf.h
-stm-apm\lv_btn.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
-stm-apm\lv_btn.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdbool.h
+stm-apm\lv_btn.o: D:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+stm-apm\lv_btn.o: D:\keil\ARM\ARMCC\Bin\..\include\stdbool.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/lv_style.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/../lv_font/lv_font.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/../lv_font/../../../lv_conf.h
@@ -17,7 +17,7 @@ stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/../lv_font/../../..
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/../lv_misc/lv_color.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/../lv_misc/../../../lv_conf.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/../lv_misc/lv_area.h
-stm-apm\lv_btn.o: D:\keil 5\ARM\ARMCC\Bin\..\include\string.h
+stm-apm\lv_btn.o: D:\keil\ARM\ARMCC\Bin\..\include\string.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/../lv_misc/../../../lv_conf.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/../lv_misc/lv_anim.h
 stm-apm\lv_btn.o: ..\Drivers\GUI\lvgl\src\lv_objx\../lv_core/../lv_misc/../../../lv_conf.h

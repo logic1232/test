@@ -3,14 +3,14 @@ stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/lvgl.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_version.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_misc/lv_log.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_misc/../../../lv_conf.h
-stm-apm\chinese_16.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+stm-apm\chinese_16.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_misc/../../../lvgl/src/lv_conf_checker.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_misc/lv_task.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_misc/../../../lv_conf.h
-stm-apm\chinese_16.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdbool.h
+stm-apm\chinese_16.o: D:\keil\ARM\ARMCC\Bin\..\include\stdbool.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_misc/lv_mem.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_misc/../../../lv_conf.h
-stm-apm\chinese_16.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
+stm-apm\chinese_16.o: D:\keil\ARM\ARMCC\Bin\..\include\stddef.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_misc/lv_ll.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_misc/lv_math.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_misc/lv_async.h
@@ -21,7 +21,7 @@ stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_hal/lv_hal.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_hal/../lv_misc/lv_color.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_hal/../lv_misc/../../../lv_conf.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_hal/../lv_misc/lv_area.h
-stm-apm\chinese_16.o: D:\keil 5\ARM\ARMCC\Bin\..\include\string.h
+stm-apm\chinese_16.o: D:\keil\ARM\ARMCC\Bin\..\include\string.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_hal/../lv_misc/../../../lv_conf.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_hal/lv_hal_indev.h
 stm-apm\chinese_16.o: ../Drivers/GUI/lvgl/src/lv_hal/../../../lv_conf.h

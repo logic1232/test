@@ -4101,17 +4101,20 @@ double parse_voltage1(const unsigned char *voltage_str) {
     return atof((const char *)voltage_str);
 }
 bool exceeded[15]={false};
+bool waring;
 int upper_hz;
 int upper_q;
 double  Cos;
 int upper_TEM;
 int waring_num;
+int lower_voltage;
 void waring_compare()
 {
+	
 	waring_num = 0;
 	bool anyExceeded=false;
 	int upper_voltage = parse_voltage(DIANYA1[avu_warning],1);
-	int lower_voltage = parse_voltage(DIANYA1[avd_warning],1);
+	 lower_voltage = parse_voltage(DIANYA_11[avd_warning],1);
 	int upper_current =parse_voltage(guoliu_type21[aiu_warning],1);
 	int lower_current=parse_voltage(guoliu_type21[aid_warning],1);
 		upper_hz=parse_voltage(hz_up[frequency_up_warning],2);
@@ -4132,63 +4135,73 @@ void waring_compare()
 		exceeded[1] = true;  //电压超上限
             anyExceeded = true;
 		waring_num ++;		
-    }  if (HT7038_buf11[1] < lower_voltage||HT7038_buf11[2] < lower_voltage||HT7038_buf11[3] < lower_voltage) {
+    }else exceeded[1] = false;  
+	if (HT7038_buf11[1] < lower_voltage||HT7038_buf11[2] < lower_voltage||HT7038_buf11[3] < lower_voltage) {
 		exceeded[2] = true;  //电压超下限
             anyExceeded = true; 
 		waring_num ++;		
-    } if (HT7038_buf11[4] > upper_current||HT7038_buf11[5] > upper_current||HT7038_buf11[6] > upper_current) {
+    }else exceeded[2] = false; 
+	if (HT7038_buf11[4] > upper_current||HT7038_buf11[5] > upper_current||HT7038_buf11[6] > upper_current) {
 		exceeded[3] = true;  //电流超上限
             anyExceeded = true;  
 		waring_num ++;
-    } if (HT7038_buf11[43] > upper_hz) {
+    }else exceeded[3] = false;
+	if (HT7038_buf11[43] > upper_hz) {
 		exceeded[4] = true;  //频率超上限
             anyExceeded = true; 
 		waring_num ++;
-    } if (HT7038_buf11[43] < lower_hz) {
+    }else exceeded[4] = false;
+	if (HT7038_buf11[43] < lower_hz) {
 		exceeded[5] = true;  //频率超下限
             anyExceeded = true; 
 		waring_num ++;		
-    } if (HT7038_buf11[10] > upper_power) {
+    }else exceeded[5] = false; if (HT7038_buf11[10] > upper_power) {
 		exceeded[6] = true;  //功率超上限
             anyExceeded = true;  
 		waring_num ++;
-    } if (max_value > upper_TEM) {
+    }else exceeded[6] = false; if (max_value > upper_TEM) {
 		exceeded[7] = true;  //进线超上限
             anyExceeded = true;  
 		waring_num ++;
-    } if (max_value > lower_TEM) {
+    }else exceeded[7] = false; if (max_value > lower_TEM) {
 		exceeded[8] = true;  //出线超上限
             anyExceeded = true;  
 		waring_num ++;
-    }if (HT7038_buf11[10]  >upper_p ) {
+    }else exceeded[8] = false;if (HT7038_buf11[10]  >upper_p ) {
 		exceeded[9] = true;  //有功功率超上限
             anyExceeded = true; 
 		waring_num ++;		
-    }if (HT7038_buf11[19] > upper_q) {
+    }else exceeded[9] = false;if (HT7038_buf11[19] > upper_q) {
 		exceeded[10] = true;  //无功功率超上限
             anyExceeded = true;  
 		waring_num ++;
-    }if (HT7038_buf11[23] > upper_s) {
+    }else exceeded[10] = false;if (HT7038_buf11[23] > upper_s) {
 		exceeded[11] = true;  //视在功率超上限
             anyExceeded = true;  
 		waring_num ++;
-    }if (HT7038_buf11[14] < Cos) {
+    }else exceeded[11] = false;if (HT7038_buf11[14] < Cos) {
 		exceeded[12] = true;  //功率因数超下限
             anyExceeded = true;  
 		waring_num ++;
-    }if (HT7038_buf11[44] > U_UB) {
+    }else exceeded[12] = false;if (HT7038_buf11[44] > U_UB) {
 		exceeded[13] = true;  //电压不平衡超上限
             anyExceeded = true; 
 		waring_num ++;		
-    }if (HT7038_buf11[45] > I_UB) {
+    }else exceeded[13] = false;if (HT7038_buf11[45] > I_UB) {
 		exceeded[14] = true;  //电流不平衡超上限
             anyExceeded = true; 
 		waring_num ++;		
-    }if (p_c_day >Power_c) {
+    }else exceeded[14] = false;if (p_c_day >Power_c) {
 		exceeded[15] = true;  //功率因数超下限
             anyExceeded = true;  
 		waring_num ++;
-    }
+    }else exceeded[15] = false;
+	if(anyExceeded)
+	{LED_waring_ON
+		waring=true;
+	}
+	else LED_waring_OFF
+	
 }
 void warning_setting()
 {
@@ -4387,12 +4400,12 @@ void displayExceededVoltages() {
 			line++;
 		displayExceedMessage(line, "电能超限");
         }
-		
+	
     }
 
-//    if (line == 0) {
-//        printf("No voltages exceed the thresholds.\n");
-//    }
+    if (line == 0) {
+         Lcd12864_Write16CnCHAR(0, 20, 2,"无报警信息" );
+    }
 }
 
 

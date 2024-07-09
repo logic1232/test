@@ -72,6 +72,7 @@ int time_1,time_2,f_pc,p_c_old,p_c_day;
 uint8_t previous_button_state = GPIO_PIN_SET;
 extern fault fault_buffer[20]; // 声明外部变量
 extern volatile signed int HT7038_buf1[300],HT7038_buf11[300] ;
+extern bool waring;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -142,7 +143,9 @@ int main(void)
 HAL_ADC_Start_DMA(&hadc,(uint32_t*)ADC_Convertedvalue,8);
 HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,GPIO_PIN_RESET);
 clear_screen();
-
+ HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,GPIO_PIN_SET);	
+ HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,GPIO_PIN_SET);	
+ HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_SET);	
 //	display_graphic_32x32(1,32*0,cheng1);
  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET);	
   /* USER CODE END 2 */
@@ -210,13 +213,13 @@ else if(key==KEY_GOBACK_PRES&&F_MAINormenu==6&&F_AEorREorALLE!=0&&F_gz_disp==0x0
 	F_AEorREorALLE=0;
 	
 }
-		else  if(key==KEY_GOBACK_PRES&&(F_MAINormenu==12||F_MAINormenu==13))
+else  if(key==KEY_GOBACK_PRES&&(F_MAINormenu==12||F_MAINormenu==13))
 {
 	clear_screen ();
 	current_page=0;
 	 F_MAINormenu=4;
 }
-else if(key==KEY_GOBACK_PRES&&(F_MAINormenu==10||F_MAINormenu==7)&&F_AEorREorALLE==0&&F_gz_disp==0x0F)    //档位保护回主界面
+else if(key==KEY_GOBACK_PRES&&(F_MAINormenu==10||F_MAINormenu==7||F_MAINormenu==15)&&F_AEorREorALLE==0&&F_gz_disp==0x0F)    //档位保护回主界面
 {
 	a1=0;
 	clear_screen();
@@ -258,7 +261,7 @@ else if(key==KEY_RIGHRT_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F)     //封面进跳闸
 clear_screen();
 	
 }
-else if(key==KEY_DOWN_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F)     //封面进校准界面（左右写反了）
+else if(key==KEY_DOWN_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F&&waring==true)     //封面进校准界面（左右写反了）
 {        
 	
  F_MAINormenu=15;
@@ -305,6 +308,7 @@ else if(key==KEY_LEAK_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F)    //漏电试跳
 if(F_T==5)
 {
 	waring_compare();
+	
 }
 
   /* USER CODE END 3 */
@@ -407,6 +411,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)   //定时器回调  一秒
 	F_T++;
 		if(F_T>10)
 		{
+			HT7038_buf11[1]=220;
+			HT7038_buf11[2]=220;
+			HT7038_buf11[3]=220;
 //			clear_screen ();
 //			F_gz_disp=0;     //cjmtest
 			 if(count1>5)

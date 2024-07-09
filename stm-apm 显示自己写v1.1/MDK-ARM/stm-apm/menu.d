@@ -1,6 +1,6 @@
 stm-apm\menu.o: ..\Core\Src\Menu.c
 stm-apm\menu.o: ../Core/Inc/menu.h
-stm-apm\menu.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+stm-apm\menu.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 stm-apm\menu.o: ../Core/Inc/lcd.h
 stm-apm\menu.o: ../Core/Inc/main.h
 stm-apm\menu.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h
@@ -16,7 +16,7 @@ stm-apm\menu.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 stm-apm\menu.o: ../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h
 stm-apm\menu.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h
 stm-apm\menu.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-stm-apm\menu.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
+stm-apm\menu.o: D:\keil\ARM\ARMCC\Bin\..\include\stddef.h
 stm-apm\menu.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h
 stm-apm\menu.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h
 stm-apm\menu.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h
@@ -42,5 +42,5 @@ stm-apm\menu.o: ../Core/Inc/display_ziku.h
 stm-apm\menu.o: ../Core/Inc/gpio.h
 stm-apm\menu.o: ../Core/Inc/rtc.h
 stm-apm\menu.o: ../Core/Inc/tool.h
-stm-apm\menu.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdbool.h
-stm-apm\menu.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdlib.h
+stm-apm\menu.o: D:\keil\ARM\ARMCC\Bin\..\include\stdbool.h
+stm-apm\menu.o: D:\keil\ARM\ARMCC\Bin\..\include\stdlib.h

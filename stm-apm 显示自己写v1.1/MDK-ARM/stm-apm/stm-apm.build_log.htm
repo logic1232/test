@@ -3,29 +3,29 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.32.0.0
-Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: 11 1320976854a@gmail.com, 1, LIC=IK1BF-62FYZ-8TL3P-MHFDR-SS446-9LYQH
+IDE-Version: μVision V5.39.0.0
+Copyright (C) 2023 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 1, 1, LIC=QF82M-XFT91-DY1V3-AQMTH-I2FWC-HTLJH
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.32.0.0
-Toolchain Path:  D:\keil 5\ARM\ARMCC\Bin
+Toolchain:       MDK-ARM Plus  Version: 5.39.0.0
+Toolchain Path:  D:\keil\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 7 (build 960)
 Assembler:       Armasm.exe V5.06 update 7 (build 960)
 Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
 Library Manager: ArmAr.exe V5.06 update 7 (build 960)
 Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
-CPU DLL:         SARMCM3.DLL V5.32.0.0
-Dialog DLL:      DARMCM1.DLL V1.19.4.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
-Dialog DLL:      TARMCM1.DLL V1.14.3.0
+CPU DLL:         SARMCM3.DLL V5.39.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.6.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.2.0.0
+Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
-D:\项目\深圳\software\stm-apm 显示自己写v1.6ed-添加故障信息\stm-apm 显示自己写v1.1\MDK-ARM\stm-apm.uvprojx
+C:\Users\13209\Documents\GitHub\test\stm-apm 显示自己写v1.1\MDK-ARM\stm-apm.uvprojx
 Project File Date:  07/09/2024
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\keil 5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\keil\ARM\ARMCC\Bin'
 Build target 'stm-apm'
 compiling Menu.c...
 ../Core/Inc/menu.h(15): warning:  #1295-D: Deprecated declaration MEUN - give arg types
@@ -284,46 +284,46 @@ compiling Menu.c...
       snprintf(buffer, sizeof(buffer), "%s", voltage_str);
 ..\Core\Src\Menu.c(4091): warning:  #223-D: function "strlen" declared implicitly
   		case 0:buffer[strlen(buffer) - 0] = '\0';  break;
-..\Core\Src\Menu.c(4188): warning:  #175-D: subscript out of range
+..\Core\Src\Menu.c(4195): warning:  #175-D: subscript out of range
   		exceeded[15] = true;  //功率因数超下限
-..\Core\Src\Menu.c(4112): warning:  #550-D: variable "anyExceeded"  was set but never used
-  	bool anyExceeded=false;
-..\Core\Src\Menu.c(4263): warning:  #223-D: function "strlen" declared implicitly
+..\Core\Src\Menu.c(4198): warning:  #175-D: subscript out of range
+      }else exceeded[15] = false;
+..\Core\Src\Menu.c(4276): warning:  #223-D: function "strlen" declared implicitly
   		 x=strlen(warning_set[current_page+i].NAME);
-..\Core\Src\Menu.c(4265): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+..\Core\Src\Menu.c(4278): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
   		Lcd12864_Write14CnCHAR(0,0,2*i,warning_set[current_page+i].NAME );
-..\Core\Src\Menu.c(4323): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+..\Core\Src\Menu.c(4336): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
               Lcd12864_Write14CnCHAR(0, 0, 2, message);
 ..\Core\Src\Menu.c(92): warning:  #177-D: variable "current_screen"  was declared but never referenced
   static int current_screen = 0;
 ..\Core\Src\Menu.c: 134 warnings, 0 errors
 linking...
-Program Size: Code=51272 RO-data=3048 RW-data=13372 ZI-data=5548  
+Program Size: Code=51556 RO-data=3048 RW-data=13372 ZI-data=5548  
 FromELF: creating hex file...
 "stm-apm\stm-apm.axf" - 0 Error(s), 134 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
-                ARM.CMSIS.5.7.0
-                CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.4.0
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM::CMSIS@5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
 
 Package Vendor: Geehy
-                https://www.geehy.com/uploads/tool/Geehy.APM32F0xx_DFP.1.0.7.pack
-                Geehy.APM32F0xx_DFP.1.0.7
+                https://www.geehy.com/uploads/tool/Geehy.APM32F0xx_DFP.1.0.9.pack
+                Geehy::APM32F0xx_DFP@1.0.9
                 Geehy Semiconductor APM32F0xx Series Device Support
 
 <h2>Collection of Component include folders:</h2>
-  .\RTE\_stm-apm
-  D:\keil 5\ARM\CMSIS\5.7.0\CMSIS\Core\Include
-  D:\keil 5\Geehy\APM32F0xx_DFP\1.0.7\Device\Device\Geehy\APM32F0xx\Include
+  ./RTE/_stm-apm
+  D:/keil/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  D:/keil/Packs/Geehy/APM32F0xx_DFP/1.0.9/Device/Device/Geehy/APM32F0xx/Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.4.0
-Build Time Elapsed:  00:00:04
+   * Component: ARM::CMSIS:CORE@5.6.0
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>
