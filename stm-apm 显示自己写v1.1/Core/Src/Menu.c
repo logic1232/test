@@ -4400,7 +4400,7 @@ void displayExceededVoltages() {
 			line++;
 		displayExceedMessage(line, "µçÄÜ³¬ÏŞ");
         }
-	
+	displayExceedMessage(line+1, "        ");
     }
 
     if (line == 0) {
