@@ -1,0 +1,325 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.32.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 11 1320976854a@gmail.com, 1, LIC=IK1BF-62FYZ-8TL3P-MHFDR-SS446-9LYQH
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.32.0.0
+Toolchain Path:  D:\keil 5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.32.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.4.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
+Dialog DLL:      TARMCM1.DLL V1.14.3.0
+ 
+<h2>Project:</h2>
+D:\项目\深圳\software\stm-apm 显示自己写v1.6ed-添加故障信息\stm-apm 显示自己写v1.1\MDK-ARM\stm-apm.uvprojx
+Project File Date:  07/09/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\keil 5\ARM\ARMCC\Bin'
+Build target 'stm-apm'
+compiling Menu.c...
+../Core/Inc/menu.h(15): warning:  #1295-D: Deprecated declaration MEUN - give arg types
+   void MEUN();
+../Core/Inc/menu.h(16): warning:  #1295-D: Deprecated declaration Time1 - give arg types
+   void Time1();
+../Core/Inc/menu.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Core/Inc/tool.h(13): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Core\Src\Menu.c(292): warning:  #1295-D: Deprecated declaration mainmenu - give arg types
+  void mainmenu();      //主菜单
+..\Core\Src\Menu.c(293): warning:  #1295-D: Deprecated declaration meun1 - give arg types
+  void meun1();        //菜单1界面
+..\Core\Src\Menu.c(294): warning:  #1295-D: Deprecated declaration meun2 - give arg types
+  void meun2();        //菜单2界面
+..\Core\Src\Menu.c(295): warning:  #1295-D: Deprecated declaration meun3 - give arg types
+  void meun3();		//菜单3界面
+..\Core\Src\Menu.c(296): warning:  #1295-D: Deprecated declaration meun4 - give arg types
+  void meun4();   	//菜单4界面
+..\Core\Src\Menu.c(297): warning:  #1295-D: Deprecated declaration meun5 - give arg types
+  void meun5();		//菜单5界面
+..\Core\Src\Menu.c(298): warning:  #1295-D: Deprecated declaration meun - give arg types
+  void meun();        //轮询主函数
+..\Core\Src\Menu.c(299): warning:  #1295-D: Deprecated declaration screenbase1 - give arg types
+  void screenbase1();	//轮询1界面
+..\Core\Src\Menu.c(300): warning:  #1295-D: Deprecated declaration screenbase2 - give arg types
+  void screenbase2();	//轮询2界面
+..\Core\Src\Menu.c(301): warning:  #1295-D: Deprecated declaration screenbase3 - give arg types
+  void screenbase3();	//轮询3界面
+..\Core\Src\Menu.c(302): warning:  #1295-D: Deprecated declaration screenbase4 - give arg types
+  void screenbase4();	//轮询4界面
+..\Core\Src\Menu.c(303): warning:  #1295-D: Deprecated declaration screenbase5 - give arg types
+  void screenbase5();	//轮询5界面
+..\Core\Src\Menu.c(304): warning:  #1295-D: Deprecated declaration screenbase6 - give arg types
+  void screenbase6();	//轮询6界面
+..\Core\Src\Menu.c(305): warning:  #1295-D: Deprecated declaration screenbase7 - give arg types
+  void screenbase7();	//轮询7界面
+..\Core\Src\Menu.c(306): warning:  #1295-D: Deprecated declaration screenbase8 - give arg types
+  void screenbase8();
+..\Core\Src\Menu.c(307): warning:  #1295-D: Deprecated declaration screenbase9 - give arg types
+  void screenbase9();
+..\Core\Src\Menu.c(308): warning:  #1295-D: Deprecated declaration screenbase10 - give arg types
+  void screenbase10();
+..\Core\Src\Menu.c(309): warning:  #1295-D: Deprecated declaration screenbase11 - give arg types
+  void screenbase11();
+..\Core\Src\Menu.c(310): warning:  #1295-D: Deprecated declaration screenbase12 - give arg types
+  void screenbase12();
+..\Core\Src\Menu.c(311): warning:  #1295-D: Deprecated declaration screenbase13 - give arg types
+  void screenbase13();
+..\Core\Src\Menu.c(312): warning:  #1295-D: Deprecated declaration demand - give arg types
+  void demand();
+..\Core\Src\Menu.c(313): warning:  #1295-D: Deprecated declaration menu_fault - give arg types
+  void menu_fault();
+..\Core\Src\Menu.c(314): warning:  #1295-D: Deprecated declaration power_quality - give arg types
+  void power_quality();
+..\Core\Src\Menu.c(315): warning:  #1295-D: Deprecated declaration meun_data - give arg types
+  void meun_data();   //跳闸次数查询界面	
+..\Core\Src\Menu.c(316): warning:  #1295-D: Deprecated declaration meun_adjust - give arg types
+  void meun_adjust();     //校准界面
+..\Core\Src\Menu.c(317): warning:  #1295-D: Deprecated declaration meun_protect1 - give arg types
+  void meun_protect1();
+..\Core\Src\Menu.c(318): warning:  #1295-D: Deprecated declaration meun_protect2 - give arg types
+  void meun_protect2(); 
+..\Core\Src\Menu.c(319): warning:  #1295-D: Deprecated declaration meun_protect3 - give arg types
+  void meun_protect3();
+..\Core\Src\Menu.c(320): warning:  #1295-D: Deprecated declaration meun_protect4 - give arg types
+  void meun_protect4();
+..\Core\Src\Menu.c(321): warning:  #1295-D: Deprecated declaration meun_protect5 - give arg types
+  void meun_protect5();
+..\Core\Src\Menu.c(322): warning:  #1295-D: Deprecated declaration Power_parameters - give arg types
+  void Power_parameters(); //电能参数
+..\Core\Src\Menu.c(324): warning:  #1295-D: Deprecated declaration menu_mimaset - give arg types
+  void menu_mimaset();   //修改密码
+..\Core\Src\Menu.c(325): warning:  #1295-D: Deprecated declaration mimaset - give arg types
+  int mimaset();
+..\Core\Src\Menu.c(326): warning:  #1295-D: Deprecated declaration timechange - give arg types
+  void timechange();
+..\Core\Src\Menu.c(327): warning:  #1295-D: Deprecated declaration warning_setting - give arg types
+  void warning_setting();
+..\Core\Src\Menu.c(330): warning:  #1295-D: Deprecated declaration fenzhaing - give arg types
+  void fenzhaing();    //正在分闸...
+..\Core\Src\Menu.c(331): warning:  #1295-D: Deprecated declaration hezhaing - give arg types
+  void hezhaing();     //正在合闸...
+..\Core\Src\Menu.c(332): warning:  #1295-D: Deprecated declaration problemdisp - give arg types
+  void problemdisp();   //故障显示相关
+..\Core\Src\Menu.c(333): warning:  #1295-D: Deprecated declaration updata_c - give arg types
+  void updata_c();   //更新更改档位
+..\Core\Src\Menu.c(334): warning:  #1295-D: Deprecated declaration judge - give arg types
+  void judge()  ;   //判断档位是否更改
+..\Core\Src\Menu.c(338): warning:  #1295-D: Deprecated declaration I_VAL_handle - give arg types
+  void I_VAL_handle();
+..\Core\Src\Menu.c(339): warning:  #1295-D: Deprecated declaration faultdisp - give arg types
+  void  faultdisp ();
+..\Core\Src\Menu.c(345): warning:  #223-D: function "sprintf" declared implicitly
+     sprintf(temp_str, "%02d", value);
+..\Core\Src\Menu.c(348): warning:  #223-D: function "strlen" declared implicitly
+      for (int i = 0; i < strlen(temp_str); ++i) {
+..\Core\Src\Menu.c(351): warning:  #223-D: function "strlen" declared implicitly
+      ascii_array[strlen(temp_str)] = '\0'; // 添加字符串结束符
+..\Core\Src\Menu.c(354): warning:  #223-D: function "sprintf" declared implicitly
+      sprintf(str, "%d", num);  // 使用 sprintf 将整数格式化到字符串中
+..\Core\Src\Menu.c(360): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+  		value_to_ascii(value, zifu_dian);
+..\Core\Src\Menu.c(364): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  			Lcd12864_Write14CnCHAR(0,x,y,zifu_dian);
+..\Core\Src\Menu.c(379): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		Lcd12864_Write16CnCHAR(0,0,2*i,menu[i].NAME );
+..\Core\Src\Menu.c(380): warning:  #223-D: function "strlen" declared implicitly
+  		  x=strlen(menu[i].NAME);
+..\Core\Src\Menu.c(621): warning:  #144-D: a value of type "volatile unsigned char *" cannot be used to initialize an entity of type "unsigned char *"
+          {"1漏电阀值", dianliu,&D_LCur,7},
+..\Core\Src\Menu.c(622): warning:  #144-D: a value of type "volatile unsigned char *" cannot be used to initialize an entity of type "unsigned char *"
+          {"2漏电延时",shijian,&TH_LCur,4},
+..\Core\Src\Menu.c(623): warning:  #144-D: a value of type "volatile unsigned char *" cannot be used to initialize an entity of type "unsigned char *"
+          {"3过压档位", DIANYA,&Vol_g,5},
+..\Core\Src\Menu.c(624): warning:  #144-D: a value of type "volatile unsigned char *" cannot be used to initialize an entity of type "unsigned char *"
+          {"4欠压档位", DIANYA_1,&Vol_q,5},
+..\Core\Src\Menu.c(649): warning:  #223-D: function "strcpy" declared implicitly
+  { D_Cur_P=8;for (int i = 0; i < 9; ++i) { strcpy((char *)guoliu_show[i], (char *)guoliu_type1[i]);}}
+..\Core\Src\Menu.c(651): warning:  #223-D: function "strcpy" declared implicitly
+  { D_Cur_P=19;for (int i = 0; i < 20; ++i) { strcpy((char *)guoliu_show[i], (char *)guoliu_type2[i]);}}
+..\Core\Src\Menu.c(653): warning:  #223-D: function "strcpy" declared implicitly
+  { D_Cur_P=12;for (int i = 0; i < 13; ++i) { strcpy((char *)guoliu_show[i], (char *)guoliu_type3[i]);}}
+..\Core\Src\Menu.c(655): warning:  #223-D: function "strcpy" declared implicitly
+  { D_Cur_P=13;for (int i = 0; i < 14; ++i) { strcpy((char *)guoliu_show[i], (char *)guoliu_type4[i]);}}
+..\Core\Src\Menu.c(657): warning:  #223-D: function "strcpy" declared implicitly
+  { D_Cur_P=7;for (int i = 0; i < 7; ++i) { strcpy((char *)guoliu_show[i], (char *)guoliu_type5[i]);}}
+..\Core\Src\Menu.c(783): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+  			int_to_ascii(HT7038_buf1[43],zifu_dian );
+..\Core\Src\Menu.c(784): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  			Lcd12864_Write14CnCHAR(0,95,0,zifu_dian);
+..\Core\Src\Menu.c(1528): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,30,2,"正在计算......");
+..\Core\Src\Menu.c(1543): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  	Lcd12864_Write14CnCHAR(0,0,0,"电压平衡率"); 
+..\Core\Src\Menu.c(1553): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"电压总谐波含有率"); 
+..\Core\Src\Menu.c(1567): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%vHR A   B   C");
+..\Core\Src\Menu.c(1584): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%vHR A   B   C");
+..\Core\Src\Menu.c(1600): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%vHR A   B   C");
+..\Core\Src\Menu.c(1615): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%vHR A   B   C");
+..\Core\Src\Menu.c(1631): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%vHR A   B   C");
+..\Core\Src\Menu.c(1646): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%vHR A   B   C");
+..\Core\Src\Menu.c(1661): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%vHR A   B   C");
+..\Core\Src\Menu.c(1676): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%vHR A   B   C");
+..\Core\Src\Menu.c(1691): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%vHR A   B   C");
+..\Core\Src\Menu.c(1706): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%vHR A   B   C");
+..\Core\Src\Menu.c(1721): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"电流总谐波含有率"); 
+..\Core\Src\Menu.c(1733): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%iHR A   B   C");
+..\Core\Src\Menu.c(1748): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%iHR A   B   C");
+..\Core\Src\Menu.c(1763): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%iHR A   B   C");
+..\Core\Src\Menu.c(1778): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%iHR A   B   C");
+..\Core\Src\Menu.c(1793): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%iHR A   B   C");
+..\Core\Src\Menu.c(1808): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%iHR A   B   C");
+..\Core\Src\Menu.c(1823): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%iHR A   B   C");
+..\Core\Src\Menu.c(1838): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%iHR A   B   C");
+..\Core\Src\Menu.c(1853): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%iHR A   B   C");
+..\Core\Src\Menu.c(1868): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,0,"%iHR A   B   C");
+..\Core\Src\Menu.c(1979): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		Lcd12864_Write16CnCHAR(0,0,2*i,meunprotect[i].NAME );
+..\Core\Src\Menu.c(1980): warning:  #223-D: function "strlen" declared implicitly
+  		 x=strlen(meunprotect[i].NAME);
+..\Core\Src\Menu.c(2180): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  Lcd12864_Write16CnCHAR(0,0,0,meundata[2*current_page].NAME );
+..\Core\Src\Menu.c(2182): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  Lcd12864_Write16CnCHAR(0,0,4,meundata[2*current_page+1].NAME );	
+..\Core\Src\Menu.c(2285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	Lcd12864_Write16CnCHAR(0,32,0,meunadjust[0].NAME1);
+..\Core\Src\Menu.c(2287): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	Lcd12864_Write16CnCHAR(0,32,0,meunadjust[0].NAME2);
+..\Core\Src\Menu.c(2289): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	Lcd12864_Write16CnCHAR(0,32,0,meunadjust[0].NAME3);
+..\Core\Src\Menu.c(2295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		Lcd12864_Write16CnCHAR(0,32,0,meunadjust[0].NAME4);
+..\Core\Src\Menu.c(2301): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	Lcd12864_Write16CnCHAR(0,32,0,meunadjust[1].NAME1);
+..\Core\Src\Menu.c(2303): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	Lcd12864_Write16CnCHAR(0,32,0,meunadjust[1].NAME2);
+..\Core\Src\Menu.c(2305): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	Lcd12864_Write16CnCHAR(0,32,0,meunadjust[1].NAME3);
+..\Core\Src\Menu.c(2311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		Lcd12864_Write16CnCHAR(0,32,0,meunadjust[1].NAME4);
+..\Core\Src\Menu.c(2316): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		if(Type_Cur==0)Lcd12864_Write16CnCHAR(0,24,0,meunadjust[2].NAME1);
+..\Core\Src\Menu.c(2317): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		if(Type_Cur==1)Lcd12864_Write16CnCHAR(0,24,0,meunadjust[3].NAME1);
+..\Core\Src\Menu.c(2318): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		if(Type_Cur==2)Lcd12864_Write16CnCHAR(0,24,0,meunadjust[4].NAME1);
+..\Core\Src\Menu.c(2319): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		if(Type_Cur==3)Lcd12864_Write16CnCHAR(0,24,0,meunadjust[5].NAME1);
+..\Core\Src\Menu.c(2320): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		if(Type_Cur==4)Lcd12864_Write16CnCHAR(0,24,0,meunadjust[6].NAME1);
+..\Core\Src\Menu.c(2325): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	Lcd12864_Write16CnCHAR(0,32,0,meunadjust[2].NAME2);
+..\Core\Src\Menu.c(2327): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	Lcd12864_Write16CnCHAR(0,32,0,meunadjust[2].NAME3);
+..\Core\Src\Menu.c(2332): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		Lcd12864_Write16CnCHAR(0,32,0,meunadjust[2].NAME4);
+..\Core\Src\Menu.c(2906): warning:  #940-D: missing return statement at end of non-void function "mimaset" 
+  }
+..\Core\Src\Menu.c(3538): warning:  #223-D: function "Write_or_Readresponse" declared implicitly
+  		Write_or_Readresponse(0x10,len,array_tmp); 
+..\Core\Src\Menu.c(3584): warning:  #69-D: integer conversion resulted in truncation
+  			DI3 = 0x09;DI2 = 0x10;DI0 = 0xF01;
+..\Core\Src\Menu.c(3471): warning:  #177-D: variable "i"  was declared but never referenced
+  	unsigned char i,cs_temp,array_tmp[len];
+..\Core\Src\Menu.c(3471): warning:  #177-D: variable "cs_temp"  was declared but never referenced
+  	unsigned char i,cs_temp,array_tmp[len];
+..\Core\Src\Menu.c(3840): warning:  #550-D: variable "F_GJ_FUNC_tmp"  was set but never used
+  	unsigned char F_GJ_FUNC_tmp,E2_arraymrnow_tmp[5];
+..\Core\Src\Menu.c(3840): warning:  #177-D: variable "E2_arraymrnow_tmp"  was declared but never referenced
+  	unsigned char F_GJ_FUNC_tmp,E2_arraymrnow_tmp[5];
+..\Core\Src\Menu.c(3991): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+  	value_to_ascii1(current_page+1,zifu_dian);
+..\Core\Src\Menu.c(4015): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+  	value_to_ascii1(fault_buffer[min_index+current_page].fault_value,zifu_dian);
+..\Core\Src\Menu.c(4018): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+  	value_to_ascii1(fault_buffer[min_index+current_page].fault_year,zifu_dian);
+..\Core\Src\Menu.c(4022): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+  	value_to_ascii1(fault_buffer[min_index+current_page].fault_month,zifu_dian);
+..\Core\Src\Menu.c(4025): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+  	value_to_ascii1(fault_buffer[min_index+current_page].fault_data,zifu_dian);
+..\Core\Src\Menu.c(4028): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+  	value_to_ascii1(fault_buffer[min_index+current_page].fault_hour,zifu_dian);
+..\Core\Src\Menu.c(4031): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+  			value_to_ascii1(fault_buffer[min_index+current_page].fault_min,zifu_dian);
+..\Core\Src\Menu.c(4034): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+  				value_to_ascii1(fault_buffer[min_index+current_page].fault_sec,zifu_dian);
+..\Core\Src\Menu.c(3985): warning:  #177-D: variable "zifu_dian1"  was declared but never referenced
+  	char zifu_dian1[12]={1,1,1,1};
+..\Core\Src\Menu.c(4085): warning:  #223-D: function "snprintf" declared implicitly
+      snprintf(buffer, sizeof(buffer), "%s", voltage_str);
+..\Core\Src\Menu.c(4087): warning:  #223-D: function "strlen" declared implicitly
+  		case 0:buffer[strlen(buffer) - 0] = '\0';  break;
+..\Core\Src\Menu.c(4168): warning:  #175-D: subscript out of range
+  		exceeded[15] = true;  //功率因数超下限
+..\Core\Src\Menu.c(4106): warning:  #550-D: variable "anyExceeded"  was set but never used
+  	bool anyExceeded=false;
+..\Core\Src\Menu.c(4242): warning:  #223-D: function "strlen" declared implicitly
+  		 x=strlen(warning_set[current_page+i].NAME);
+..\Core\Src\Menu.c(4244): warning:  #223-D: function "Lcd12864_Write14CnCHAR" declared implicitly
+  		Lcd12864_Write14CnCHAR(0,0,2*i,warning_set[current_page+i].NAME );
+..\Core\Src\Menu.c(92): warning:  #177-D: variable "current_screen"  was declared but never referenced
+  static int current_screen = 0;
+..\Core\Src\Menu.c: 132 warnings, 0 errors
+linking...
+Program Size: Code=50724 RO-data=3048 RW-data=13332 ZI-data=5548  
+FromELF: creating hex file...
+"stm-apm\stm-apm.axf" - 0 Error(s), 132 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Geehy
+                https://www.geehy.com/uploads/tool/Geehy.APM32F0xx_DFP.1.0.7.pack
+                Geehy.APM32F0xx_DFP.1.0.7
+                Geehy Semiconductor APM32F0xx Series Device Support
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_stm-apm
+  D:\keil 5\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  D:\keil 5\Geehy\APM32F0xx_DFP\1.0.7\Device\Device\Geehy\APM32F0xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>
