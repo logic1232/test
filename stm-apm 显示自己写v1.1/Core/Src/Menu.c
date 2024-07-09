@@ -312,6 +312,7 @@ void screenbase13();
 void demand();
 void menu_fault();
 void power_quality();
+void displayExceededVoltages();
 void meun_data();   //跳闸次数查询界面	
 void meun_adjust();     //校准界面
 void meun_protect1();
@@ -595,6 +596,9 @@ void MEUN()       //判断不同菜单的标志位确定展示什么
 			else if(F_MAINormenu==13)
 			{	
 				 faultdisp ();
+			} else if(F_MAINormenu==15)
+			{	
+				 displayExceededVoltages();
 			} 
 			
 }else   if(F_gz_disp!=0x0F)                           //有故障,显示故障相关界面
@@ -4101,8 +4105,10 @@ int upper_hz;
 int upper_q;
 double  Cos;
 int upper_TEM;
+int waring_num;
 void waring_compare()
 {
+	waring_num = 0;
 	bool anyExceeded=false;
 	int upper_voltage = parse_voltage(DIANYA1[avu_warning],1);
 	int lower_voltage = parse_voltage(DIANYA1[avd_warning],1);
@@ -4124,49 +4130,64 @@ void waring_compare()
 		
 	if (HT7038_buf11[1] > upper_voltage||HT7038_buf11[2] > upper_voltage||HT7038_buf11[3] > upper_voltage) {
 		exceeded[1] = true;  //电压超上限
-            anyExceeded = true;  
+            anyExceeded = true;
+		waring_num ++;		
     }  if (HT7038_buf11[1] < lower_voltage||HT7038_buf11[2] < lower_voltage||HT7038_buf11[3] < lower_voltage) {
 		exceeded[2] = true;  //电压超下限
-            anyExceeded = true;  
+            anyExceeded = true; 
+		waring_num ++;		
     } if (HT7038_buf11[4] > upper_current||HT7038_buf11[5] > upper_current||HT7038_buf11[6] > upper_current) {
 		exceeded[3] = true;  //电流超上限
             anyExceeded = true;  
+		waring_num ++;
     } if (HT7038_buf11[43] > upper_hz) {
 		exceeded[4] = true;  //频率超上限
             anyExceeded = true; 
+		waring_num ++;
     } if (HT7038_buf11[43] < lower_hz) {
 		exceeded[5] = true;  //频率超下限
-            anyExceeded = true;  
+            anyExceeded = true; 
+		waring_num ++;		
     } if (HT7038_buf11[10] > upper_power) {
 		exceeded[6] = true;  //功率超上限
             anyExceeded = true;  
+		waring_num ++;
     } if (max_value > upper_TEM) {
 		exceeded[7] = true;  //进线超上限
             anyExceeded = true;  
+		waring_num ++;
     } if (max_value > lower_TEM) {
 		exceeded[8] = true;  //出线超上限
             anyExceeded = true;  
+		waring_num ++;
     }if (HT7038_buf11[10]  >upper_p ) {
 		exceeded[9] = true;  //有功功率超上限
-            anyExceeded = true;  
+            anyExceeded = true; 
+		waring_num ++;		
     }if (HT7038_buf11[19] > upper_q) {
 		exceeded[10] = true;  //无功功率超上限
             anyExceeded = true;  
+		waring_num ++;
     }if (HT7038_buf11[23] > upper_s) {
 		exceeded[11] = true;  //视在功率超上限
             anyExceeded = true;  
+		waring_num ++;
     }if (HT7038_buf11[14] < Cos) {
 		exceeded[12] = true;  //功率因数超下限
             anyExceeded = true;  
+		waring_num ++;
     }if (HT7038_buf11[44] > U_UB) {
 		exceeded[13] = true;  //电压不平衡超上限
-            anyExceeded = true;  
+            anyExceeded = true; 
+		waring_num ++;		
     }if (HT7038_buf11[45] > I_UB) {
 		exceeded[14] = true;  //电流不平衡超上限
-            anyExceeded = true;  
+            anyExceeded = true; 
+		waring_num ++;		
     }if (p_c_day >Power_c) {
 		exceeded[15] = true;  //功率因数超下限
             anyExceeded = true;  
+		waring_num ++;
     }
 }
 void warning_setting()
@@ -4295,23 +4316,83 @@ else if(key == KEY_LEFT_PRES && (*(warning_set[current_page + a].value) < warnin
 	(*(warning_set[current_page+a].value))++;
 }
 }
-void displayExceededVoltages(bool exceeded[]) {
+void displayExceedMessage(int line, const char* message)
+{
+	switch (line) {
+        case 1:
+            Lcd12864_Write14CnCHAR(0, 0, 2, message);
+            break;
+        case 2:
+            Lcd12864_Write14CnCHAR(0, 0, 4, message);
+            break;
+        case 3:
+            Lcd12864_Write14CnCHAR(0, 0, 6, message);
+            break;
+        case 4: Lcd12864_Write14CnCHAR(0, 60, 2, message);
+            break;
+        case 5: Lcd12864_Write14CnCHAR(0, 60, 4, message);
+            break;
+        case 6:
+            Lcd12864_Write14CnCHAR(0, 60, 6, message);
+            break;
+        default:
+            // 如果需要处理超过6行的情况，可以在这里添加代码
+            break;
+    }
+}
+
+
+void displayExceededVoltages() {
 
   
 
     int line = 0;
-
-    printf("Voltages exceeding thresholds:\n");
-    for (int i = 0; i < NUM_VOLTAGES; i++) {
-        if (exceeded[i]) {
-            printf("Line %d: Voltage %c: %.2f\n", line + 1, 'A' + i, voltages[i]);
-            line++;
+	Lcd12864_Write16CnCHAR(0,30,0,"报警信息");
+   
+    for (int i = 0; i < 15; i++) {
+        if (exceeded[i]&&(i==1||i==2)) {
+			line++;
+			 displayExceedMessage(line, "电压超限");
+			
+			}
+        
+		if (exceeded[i]&&(i==3)) {
+			line++;
+          displayExceedMessage(line, "电流超限");
+			}
+        if (exceeded[i]&&(i==4||i==5)) {
+			line++;
+			displayExceedMessage(line, "频率超限");
+			}
+       
+        if (exceeded[i]&&(i==6)) {
+			line++;
+      displayExceedMessage(line, "功率超限");
+        }if (exceeded[i]&&(i==7||i==8)) {
+			line++;
+		displayExceedMessage(line, "温度超限");
+        }if (exceeded[i]&&(i==9||i==10||i==11)) {
+			line++;
+		displayExceedMessage(line, "功率");
+        }if (exceeded[i]&&(i==12)) {
+			line++;
+		displayExceedMessage(line, "功率因数");
+        }if (exceeded[i]&&(i==13)) {
+			line++;
+		displayExceedMessage(line, "电压平衡");
+        }if (exceeded[i]&&(i==14)) {
+			line++;
+		displayExceedMessage(line, "电流平衡");
+        }if (exceeded[i]&&(i==15)) {
+			line++;
+		displayExceedMessage(line, "电能超限");
         }
+		
     }
 
-    if (line == 0) {
-        printf("No voltages exceed the thresholds.\n");
-    }
+//    if (line == 0) {
+//        printf("No voltages exceed the thresholds.\n");
+//    }
 }
 
 

@@ -261,7 +261,7 @@ clear_screen();
 else if(key==KEY_DOWN_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F)     //封面进校准界面（左右写反了）
 {        
 	
- F_MAINormenu=5;
+ F_MAINormenu=15;
 clear_screen();
 	
 }
