@@ -3,7 +3,7 @@
 <title>Static Call Graph - [stm-apm\stm-apm.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image stm-apm\stm-apm.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jul 10 00:30:38 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jul 10 01:02:20 2024
 <BR><P>
 <H3>Maximum Stack Usage =        408 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2055,6 +2055,7 @@ Global Symbols
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menu_mimaset
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mainmenu
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;faultdisp
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayExceededVoltages
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayExceedMessage
 </UL>
 
@@ -2198,11 +2199,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayExceededVoltages
 </UL>
 
-<P><STRONG><a name="[132]"></a>displayExceededVoltages</STRONG> (Thumb, 272 bytes, Stack size 16 bytes, menu.o(i.displayExceededVoltages))
+<P><STRONG><a name="[132]"></a>displayExceededVoltages</STRONG> (Thumb, 322 bytes, Stack size 16 bytes, menu.o(i.displayExceededVoltages))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = displayExceededVoltages &rArr; displayExceedMessage &rArr; Lcd12864_Write14CnCHAR &rArr; transfer_data
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lcd12864_Write16CnCHAR
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayExceedMessage
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MEUN
 </UL>

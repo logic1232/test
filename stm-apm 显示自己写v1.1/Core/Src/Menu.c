@@ -4400,9 +4400,29 @@ void displayExceededVoltages() {
 			line++;
 		displayExceedMessage(line, "电能超限");
         }
-	displayExceedMessage(line+1, "        ");
+		
+		
     }
-
+switch (line){
+			case 1: displayExceedMessage(line+1, "        ");
+					displayExceedMessage(line+2, "        ");
+					displayExceedMessage(line+3, "        ");
+					displayExceedMessage(line+4, "        ");
+					displayExceedMessage(line+5, "        ");break;
+			case 2:displayExceedMessage(line+1, "        ");
+				   displayExceedMessage(line+2, "        ");
+			       displayExceedMessage(line+3, "        ");
+			       displayExceedMessage(line+4, "        ");break;
+			 case 3:displayExceedMessage(line+1, "        ");
+				   displayExceedMessage(line+2, "        ");
+			       displayExceedMessage(line+3, "        ");break;
+			 case 4:displayExceedMessage(line+1, "        ");
+				   displayExceedMessage(line+2, "        ");break;
+			   case 5:displayExceedMessage(line+1, "        ");break;
+				
+			
+	
+		}
     if (line == 0) {
          Lcd12864_Write16CnCHAR(0, 20, 2,"无报警信息" );
     }

@@ -620,6 +620,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>lower_voltage,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>93</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>line</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
