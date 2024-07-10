@@ -4360,7 +4360,7 @@ void displayExceededVoltages() {
   
 
     int line = 0;
-	Lcd12864_Write16CnCHAR(0,30,0,"报警信息");
+	
    
     for (int i = 0; i < 15; i++) {
         if (exceeded[i]&&(i==1||i==2)) {
@@ -4404,6 +4404,13 @@ void displayExceededVoltages() {
 		
     }
 switch (line){
+	case 0: 		displayExceedMessage(line+1, "        ");
+					displayExceedMessage(line+2, "        ");
+					displayExceedMessage(line+3, "        ");
+					displayExceedMessage(line+4, "        ");
+					displayExceedMessage(line+5, "        ");
+					displayExceedMessage(line+6, "        ");break;
+	
 			case 1: displayExceedMessage(line+1, "        ");
 					displayExceedMessage(line+2, "        ");
 					displayExceedMessage(line+3, "        ");
@@ -4423,9 +4430,10 @@ switch (line){
 			
 	
 		}
-    if (line == 0) {
-         Lcd12864_Write16CnCHAR(0, 20, 2,"无报警信息" );
+    if (line != 0) {
+		Lcd12864_Write16CnCHAR(0,30,0," 报警信息 ");		
     }
+	else Lcd12864_Write16CnCHAR(0,18,0," 无报警信息 ");
 }
 
 

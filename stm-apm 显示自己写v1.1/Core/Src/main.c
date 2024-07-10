@@ -411,9 +411,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)   //定时器回调  一秒
 	F_T++;
 		if(F_T>10)
 		{
-			HT7038_buf11[1]=220;
-			HT7038_buf11[2]=220;
-			HT7038_buf11[3]=220;
+//			HT7038_buf11[1]=220;
+//			HT7038_buf11[2]=220;
+//			HT7038_buf11[3]=220;
+//			HT7038_buf11[43]=55;
+//			HT7038_buf11[14]=1;
+//			HT7038_buf11[4]=300;
 //			clear_screen ();
 //			F_gz_disp=0;     //cjmtest
 			 if(count1>5)
