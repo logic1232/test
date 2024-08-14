@@ -168,7 +168,7 @@
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Unbal_Vol</ItemText>
+          <ItemText>Unbal_Vol,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
@@ -189,6 +189,36 @@
           <count>6</count>
           <WinNumber>1</WinNumber>
           <ItemText>Average_Vol,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>F_lcd_cnt,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>deltaAve,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Average_Vol,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>10</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>deltaVAC,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>11</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>deltaVAB,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>deltaVBC,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

@@ -10759,12 +10759,12 @@ n分钟更新一次电费，则需要计算n分钟内消耗的电量*该时段的电价
 *****************************/
 void Time_bill(void)//1分钟一次
 {
-	unsigned int A_Phase_Vol = HT7038_buf[1];
-	unsigned int B_Phase_Vol = HT7038_buf[2];
-	unsigned int C_Phase_Vol = HT7038_buf[3];
-	unsigned int A_Phase_Cur = HT7038_buf[4];
-	unsigned int B_Phase_Cur = HT7038_buf[5];
-	unsigned int C_Phase_Cur = HT7038_buf[6];
+	signed int A_Phase_Vol = HT7038_buf[1];
+	signed int B_Phase_Vol = HT7038_buf[2];
+	signed int C_Phase_Vol = HT7038_buf[3];
+	signed int A_Phase_Cur = HT7038_buf[4];
+	signed int B_Phase_Cur = HT7038_buf[5];
+	signed int C_Phase_Cur = HT7038_buf[6];
 
 	unsigned char hour = stimestructure.Hours;
 	
@@ -10799,18 +10799,34 @@ void Time_bill(void)//1分钟一次
 	
 	
 	/*******电压电流不平衡度*************/
-	int Average_Vol,Average_Cur;
+	int Average_Vol,Average_Cur,deltaVAC,deltaVBC,deltaVAB,deltaVAve,deltaCurAC,deltaCurBC,deltaCurAB,deltaCurAve;
 
 	 Average_Vol=(A_Phase_Vol+B_Phase_Vol+C_Phase_Vol)/3;
 	 Average_Cur=(A_Phase_Cur+B_Phase_Cur+C_Phase_Cur)/3;
 	
-	if((A_Phase_Vol>=B_Phase_Vol)&&(A_Phase_Vol>=C_Phase_Vol))          Unbal_Vol=(float)A_Phase_Vol/(float)Average_Vol;  //Unbal_Vol为电压不平衡度
-	else if(((B_Phase_Vol>=A_Phase_Vol)&&(B_Phase_Vol>=C_Phase_Vol)))   Unbal_Vol=(float)B_Phase_Vol/(float)Average_Vol;
-	else if(((C_Phase_Vol>=A_Phase_Vol)&&(C_Phase_Vol>=B_Phase_Vol)))   Unbal_Vol=(float)C_Phase_Vol/(float)Average_Vol;
+	deltaVAC=abs(A_Phase_Vol-C_Phase_Vol);
+	deltaVAB=abs(A_Phase_Vol-B_Phase_Vol);
+	deltaVBC=abs(B_Phase_Vol-C_Phase_Vol);
+	deltaCurAC=abs(A_Phase_Cur-C_Phase_Cur);
+	deltaCurAB=abs(A_Phase_Cur-B_Phase_Cur);
+	deltaCurBC=abs(B_Phase_Cur-C_Phase_Cur);
+	
+	deltaVAve=(deltaVAC+deltaVAB+deltaVBC)/3;
+	deltaCurAve=(deltaCurAC+deltaCurAB+deltaCurBC)/3;
+	
+	Unbal_Vol=(float)deltaVAve/(float)Average_Vol;
+	Unbal_Vol=1-Unbal_Vol;
+	
+	Unbal_Cur=(float)deltaCurAve/(float)Average_Cur;
+	Unbal_Cur=1-Unbal_Cur;
+	
+//	if((A_Phase_Vol>=B_Phase_Vol)&&(A_Phase_Vol>=C_Phase_Vol))          Unbal_Vol=(float)A_Phase_Vol/(float)Average_Vol;  //Unbal_Vol为电压不平衡度
+//	else if(((B_Phase_Vol>=A_Phase_Vol)&&(B_Phase_Vol>=C_Phase_Vol)))   Unbal_Vol=(float)B_Phase_Vol/(float)Average_Vol;
+//	else if(((C_Phase_Vol>=A_Phase_Vol)&&(C_Phase_Vol>=B_Phase_Vol)))   Unbal_Vol=(float)C_Phase_Vol/(float)Average_Vol;
 
-	if((A_Phase_Cur>=B_Phase_Cur)&&(A_Phase_Cur>=C_Phase_Cur))          Unbal_Cur=(float)A_Phase_Cur/(float)Average_Cur;  //Unbal_Cur 为电流不平衡度
-	else if(((B_Phase_Cur>=A_Phase_Cur)&&(B_Phase_Cur>=C_Phase_Cur)))   Unbal_Cur=(float)B_Phase_Cur/(float)Average_Cur;
-	else if(((C_Phase_Cur>=A_Phase_Cur)&&(C_Phase_Cur>=B_Phase_Cur)))   Unbal_Cur=(float)C_Phase_Cur/(float)Average_Cur;
+//	if((A_Phase_Cur>=B_Phase_Cur)&&(A_Phase_Cur>=C_Phase_Cur))          Unbal_Cur=(float)A_Phase_Cur/(float)Average_Cur;  //Unbal_Cur 为电流不平衡度
+//	else if(((B_Phase_Cur>=A_Phase_Cur)&&(B_Phase_Cur>=C_Phase_Cur)))   Unbal_Cur=(float)B_Phase_Cur/(float)Average_Cur;
+//	else if(((C_Phase_Cur>=A_Phase_Cur)&&(C_Phase_Cur>=B_Phase_Cur)))   Unbal_Cur=(float)C_Phase_Cur/(float)Average_Cur;
 	
 	
 	/*******需量：周期15mins，滑差1分钟 ,一分钟运行一次************/

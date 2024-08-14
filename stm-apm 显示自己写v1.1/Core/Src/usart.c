@@ -231,7 +231,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 F_re_sta = 0;
                 F_Dataval=1;
 				 write_ptr = (write_ptr + 1) % BUFFER_SIZE;  // —≠ª∑–¥»Î
-				HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_3);
+				//HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_3);
                 HAL_UART_Receive_IT(&huart1, (uint8_t*)tmp_uart_rx, 1);  
                 return;
             }

@@ -220,10 +220,10 @@ unsigned char power_waring[13][8] =
         "70kW", "75kW", "80kW", "85kW", "90kW", "95kW", "100kW", "105kW", "110kW", "115kW", "120kW", "125kW", "130kW"};
 unsigned char u_UB_waring[6][8] =
     {
-        "0.5%", "1.0%", "1.5%", "2%", "2.5%", "3.0%"};
+        "80%", "84%", "88%", "92%", "96%", "100%"};
 unsigned char i_UB_waring[6][8] =
     {
-        "0.5%", "1.0%", "1.5%", "2%", "2.5%", "3.0%"};
+        "80%", "84%", "88%", "92%", "96%", "100%"};
 unsigned char Powerconsumption_warning[4][8] =
     {
         "1000kWh", "2000kWh", "3000kWh", "4000kWh"};
@@ -4588,6 +4588,8 @@ double Cos;
 int upper_TEM;
 int waring_num;
 int lower_voltage;
+ int U_UB;
+ int I_UB;
 void waring_compare()
 {
 
@@ -4606,8 +4608,8 @@ void waring_compare()
     upper_q = parse_voltage(q_waring[Q_warning], 4);
     int upper_s = parse_voltage(s_warning[S_warning], 4);
     Cos = parse_voltage1(Cos_warning[cos_warning]);
-    int U_UB = parse_voltage(u_UB_waring[U_UB_waring], 1);
-    int I_UB = parse_voltage(i_UB_waring[I_UB_waring], 1);
+   U_UB = parse_voltage(u_UB_waring[U_UB_waring], 1);
+   I_UB = parse_voltage(i_UB_waring[I_UB_waring], 1);
     int Power_c = parse_voltage(Powerconsumption_warning[powerconsumption_warning], 3);
 
     if (HT7038_buf11[1] > upper_voltage || HT7038_buf11[2] > upper_voltage || HT7038_buf11[3] > upper_voltage)
