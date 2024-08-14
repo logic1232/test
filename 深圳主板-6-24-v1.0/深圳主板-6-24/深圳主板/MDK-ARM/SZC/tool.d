@@ -1,0 +1,35 @@
+szc\tool.o: ..\Src\tool.c
+szc\tool.o: ../Inc/tool.h
+szc\tool.o: ../Inc/main.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+szc\tool.o: ../Inc/stm32f1xx_hal_conf.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
+szc\tool.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
+szc\tool.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h
+szc\tool.o: ../Drivers/CMSIS/Include/core_cm3.h
+szc\tool.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+szc\tool.o: ../Drivers/CMSIS/Include/cmsis_version.h
+szc\tool.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+szc\tool.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+szc\tool.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+szc\tool.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+szc\tool.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h

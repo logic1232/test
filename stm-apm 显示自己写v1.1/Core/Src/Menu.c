@@ -2144,10 +2144,11 @@ void meun_protect4()  //保护界面4
 {
 	
 	meunpro meunprotect[]={
-		{"13校准档位",&jiaozhun},    
-        {"14上电合闸",&shangdian},
-        {"15漏电合闸",&LD_hezha},
-        {"16电压合闸",&DY_hezha}, 
+//		{"13校准档位",&jiaozhun},    
+        {"13上电合闸",&shangdian},
+        {"14漏电合闸",&LD_hezha},
+        {"15电压合闸",&DY_hezha}, 
+		{"16电流合闸",&DL_hezha}, 
 	};
 	int totalItems = sizeof(meunprotect) / sizeof(meunprotect[0]);
 	displayMenupro(meunprotect,totalItems,0);
@@ -2157,9 +2158,9 @@ void meun_protect5()  //保护界面5
 {
 	
 	meunpro meunprotect[]={
-		{"17电流合闸",&DL_hezha},    
-        {"18温度保护",&wendu},
-        {"19通信方式",&F_TX},
+//		{"17电流合闸",&DL_hezha},    
+        {"17温度保护",&wendu},
+        {"18通信方式",&F_TX},
        
 	};
 	int totalItems = sizeof(meunprotect) / sizeof(meunprotect[0]);

@@ -1,0 +1,125 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.32.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 11 1320976854a@gmail.com, 1, LIC=IK1BF-62FYZ-8TL3P-MHFDR-SS446-9LYQH
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.32.0.0
+Toolchain Path:  D:\keil 5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.32.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+D:\项目\深圳\主板\深圳主板-6-24-v1.0\深圳主板-6-24\深圳主板\MDK-ARM\SZC.uvprojx
+Project File Date:  07/03/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\keil 5\ARM\ARMCC\Bin'
+Build target 'SZC'
+compiling main.c...
+../Inc/disp.h(82): warning:  #1295-D: Deprecated declaration mima_input - give arg types
+  void mima_input();
+../Inc/disp.h(83): warning:  #1295-D: Deprecated declaration mima_check - give arg types
+  void mima_check();
+../Inc/disp.h(84): warning:  #1295-D: Deprecated declaration mima_change - give arg types
+  void mima_change();
+../Inc/state.h(58): warning:  #1295-D: Deprecated declaration Fun_LD_hezha - give arg types
+  void Fun_LD_hezha();
+../Inc/state.h(59): warning:  #1295-D: Deprecated declaration Fun_DY_hezha - give arg types
+  void Fun_DY_hezha();
+../Inc/state.h(60): warning:  #1295-D: Deprecated declaration Fun_DL_hezha - give arg types
+  void Fun_DL_hezha();
+../Src/main.c(630): warning:  #177-D: variable "i"  was declared but never referenced
+      unsigned char i;
+../Src/main.c(4256): warning:  #186-D: pointless comparison of unsigned integer with zero
+      if ((day >= 0) && (day < 32))
+../Src/main.c(4357): warning:  #186-D: pointless comparison of unsigned integer with zero
+      if ((day >= 0) && (day < 32))
+../Src/main.c(4444): warning:  #186-D: pointless comparison of unsigned integer with zero
+      if ((day >= 0) && (day < 32))
+../Src/main.c(6431): warning:  #1294-D: Old-style function Tem_trip
+  void Tem_trip(phase_tmp)
+../Src/main.c(6431): warning:  #1079-D: standard requires that parameter "phase_tmp"  be given a type by a subsequent declaration ("int" assumed)
+  void Tem_trip(phase_tmp)
+../Src/main.c(7736): warning:  #186-D: pointless comparison of unsigned integer with zero
+              if (D_A_LCur < 0)
+../Src/main.c(7959): warning:  #177-D: variable "i"  was declared but never referenced
+      unsigned char i;
+../Src/main.c(8410): warning:  #175-D: subscript out of range
+      Tem_Array_AD[0] = ADC_ConvertedValue[10] / 1;
+../Src/main.c(8411): warning:  #175-D: subscript out of range
+      Tem_Array_AD[1] = ADC_ConvertedValue[11] / 1;
+../Src/main.c(8412): warning:  #175-D: subscript out of range
+      Tem_Array_AD[2] = ADC_ConvertedValue[9] / 1;
+../Src/main.c(8413): warning:  #175-D: subscript out of range
+      Tem_Array_AD[3] = ADC_ConvertedValue[8] / 1;
+../Src/main.c(9737): warning:  #177-D: variable "y"  was declared but never referenced
+      unsigned int y;
+../Src/main.c(9864): warning:  #177-D: variable "y"  was declared but never referenced
+      unsigned int y;
+../Src/main.c(9989): warning:  #177-D: variable "y"  was declared but never referenced
+      unsigned int y;
+../Src/main.c(10271): warning:  #177-D: variable "tim_array_tmp"  was declared but never referenced
+          unsigned char tim_array_tmp[10];
+../Src/main.c(10581): warning:  #223-D: function "abs" declared implicitly
+      HT7038_buf[7] = abs(HT7038_buf[7]);
+../Src/main.c(10772): warning:  #177-D: variable "J_Begin"  was declared but never referenced
+  	int J_Begin,J_Over,F_Begin,F_Over,P_Begin,P_Over,G_Begin,G_Over; //尖峰平谷
+../Src/main.c(10772): warning:  #177-D: variable "J_Over"  was declared but never referenced
+  	int J_Begin,J_Over,F_Begin,F_Over,P_Begin,P_Over,G_Begin,G_Over; //尖峰平谷
+../Src/main.c(10772): warning:  #177-D: variable "F_Begin"  was declared but never referenced
+  	int J_Begin,J_Over,F_Begin,F_Over,P_Begin,P_Over,G_Begin,G_Over; //尖峰平谷
+../Src/main.c(10772): warning:  #177-D: variable "F_Over"  was declared but never referenced
+  	int J_Begin,J_Over,F_Begin,F_Over,P_Begin,P_Over,G_Begin,G_Over; //尖峰平谷
+../Src/main.c(10772): warning:  #177-D: variable "P_Begin"  was declared but never referenced
+  	int J_Begin,J_Over,F_Begin,F_Over,P_Begin,P_Over,G_Begin,G_Over; //尖峰平谷
+../Src/main.c(10772): warning:  #177-D: variable "P_Over"  was declared but never referenced
+  	int J_Begin,J_Over,F_Begin,F_Over,P_Begin,P_Over,G_Begin,G_Over; //尖峰平谷
+../Src/main.c(10772): warning:  #177-D: variable "G_Begin"  was declared but never referenced
+  	int J_Begin,J_Over,F_Begin,F_Over,P_Begin,P_Over,G_Begin,G_Over; //尖峰平谷
+../Src/main.c(10772): warning:  #177-D: variable "G_Over"  was declared but never referenced
+  	int J_Begin,J_Over,F_Begin,F_Over,P_Begin,P_Over,G_Begin,G_Over; //尖峰平谷
+../Src/main.c(11095): warning:  #177-D: variable "array_test"  was declared but never referenced
+  		uint8_t array_test[1]={0x55};
+../Src/main.c: 32 warnings, 0 errors
+linking...
+Program Size: Code=109192 RO-data=2572 RW-data=19296 ZI-data=38224  
+FromELF: creating hex file...
+"SZC\SZC.axf" - 0 Error(s), 32 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Geehy
+                https://www.geehy.com/uploads/tool/Geehy.APM32E1xx_DFP.1.0.0.pack
+                Geehy.APM32E1xx_DFP.1.0.0
+                Geehy Semiconductor APM32E1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_SZC
+  D:\keil 5\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  D:\keil 5\Geehy\APM32E1xx_DFP\1.0.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>
