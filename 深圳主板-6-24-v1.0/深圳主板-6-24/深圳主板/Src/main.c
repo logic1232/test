@@ -10804,13 +10804,13 @@ void Time_bill(void)//1分钟一次
 	 Average_Vol=(A_Phase_Vol+B_Phase_Vol+C_Phase_Vol)/3;
 	 Average_Cur=(A_Phase_Cur+B_Phase_Cur+C_Phase_Cur)/3;
 	
-	if((A_Phase_Vol>=B_Phase_Vol)&&(A_Phase_Vol>=C_Phase_Vol))          Unbal_Vol=A_Phase_Vol/Average_Vol;  //Unbal_Vol为电压不平衡度
-	else if(((B_Phase_Vol>=A_Phase_Vol)&&(B_Phase_Vol>=C_Phase_Vol)))   Unbal_Vol=B_Phase_Vol/Average_Vol;
-	else if(((C_Phase_Vol>=A_Phase_Vol)&&(C_Phase_Vol>=B_Phase_Vol)))   Unbal_Vol=C_Phase_Vol/Average_Vol;
+	if((A_Phase_Vol>=B_Phase_Vol)&&(A_Phase_Vol>=C_Phase_Vol))          Unbal_Vol=(float)A_Phase_Vol/(float)Average_Vol;  //Unbal_Vol为电压不平衡度
+	else if(((B_Phase_Vol>=A_Phase_Vol)&&(B_Phase_Vol>=C_Phase_Vol)))   Unbal_Vol=(float)B_Phase_Vol/(float)Average_Vol;
+	else if(((C_Phase_Vol>=A_Phase_Vol)&&(C_Phase_Vol>=B_Phase_Vol)))   Unbal_Vol=(float)C_Phase_Vol/(float)Average_Vol;
 
-	if((A_Phase_Cur>=B_Phase_Cur)&&(A_Phase_Cur>=C_Phase_Cur))          Unbal_Cur=A_Phase_Cur/Average_Cur;  //Unbal_Cur 为电流不平衡度
-	else if(((B_Phase_Cur>=A_Phase_Cur)&&(B_Phase_Cur>=C_Phase_Cur)))   Unbal_Cur=B_Phase_Cur/Average_Cur;
-	else if(((C_Phase_Cur>=A_Phase_Cur)&&(C_Phase_Cur>=B_Phase_Cur)))   Unbal_Cur=C_Phase_Cur/Average_Cur;
+	if((A_Phase_Cur>=B_Phase_Cur)&&(A_Phase_Cur>=C_Phase_Cur))          Unbal_Cur=(float)A_Phase_Cur/(float)Average_Cur;  //Unbal_Cur 为电流不平衡度
+	else if(((B_Phase_Cur>=A_Phase_Cur)&&(B_Phase_Cur>=C_Phase_Cur)))   Unbal_Cur=(float)B_Phase_Cur/(float)Average_Cur;
+	else if(((C_Phase_Cur>=A_Phase_Cur)&&(C_Phase_Cur>=B_Phase_Cur)))   Unbal_Cur=(float)C_Phase_Cur/(float)Average_Cur;
 	
 	
 	/*******需量：周期15mins，滑差1分钟 ,一分钟运行一次************/
@@ -11090,32 +11090,32 @@ int main(void)
 		HAL_ADC_Start_DMA(&hadc1,ADC_ConvertedValue,8);
 		
 		
-		
-    /* USER CODE END 2 */
-		uint8_t array_test[1]={0x55};
-    /* Infinite loop */
-    /* USER CODE BEGIN WHILE */
-		uint8_t buffercui[180];
-		  for (int i = 0; i < 20; i++) {
-        buffercui[9*i] = 0XFF;
-			   buffercui[9*i+1] = 0XFF;
-			   buffercui[9*i+2] = 0XFF;
-			   buffercui[9*i+3] = 0XFF;
-			   buffercui[9*i+4] = 0XFF;
-			   buffercui[9*i+5] = 0XFF;
-			   buffercui[9*i+6] = 0XFF;
-			   buffercui[9*i+7] = 0XFF;
-			   buffercui[9*i+8] = 0XFF;
-			 
-			  
-			  
-    }
-			
-			MODIFY_EEP_W(0,buffercui,180,0xA0);
-	gz_disp=2222;
-Write_Record(1,0);
-	Write_Record(1,0);
-EEPROM_R(0,buffercui,180,0xA0);
+//		
+//    /* USER CODE END 2 */
+//		uint8_t array_test[1]={0x55};
+//    /* Infinite loop */
+//    /* USER CODE BEGIN WHILE */
+//		uint8_t buffercui[180];
+//		  for (int i = 0; i < 20; i++) {
+//        buffercui[9*i] = 0XFF;
+//			   buffercui[9*i+1] = 0XFF;
+//			   buffercui[9*i+2] = 0XFF;
+//			   buffercui[9*i+3] = 0XFF;
+//			   buffercui[9*i+4] = 0XFF;
+//			   buffercui[9*i+5] = 0XFF;
+//			   buffercui[9*i+6] = 0XFF;
+//			   buffercui[9*i+7] = 0XFF;
+//			   buffercui[9*i+8] = 0XFF;
+//			 
+//			  
+//			  
+//    }
+//			
+//			MODIFY_EEP_W(0,buffercui,180,0xA0);
+//	gz_disp=2222;
+//Write_Record(1,0);
+//	Write_Record(1,0);  
+//EEPROM_R(0,buffercui,180,0xA0);
     while (1)
     {
 			
@@ -11138,21 +11138,21 @@ EEPROM_R(0,buffercui,180,0xA0);
 						USART_LCD_Transmit(90,13);
 						USART_LCD_Transmit(90,14);
 					HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-//					if(F_lcd_firsttime==0) //上电1s发送一次挡位信息
-//					{
-//						USART_LCD_Transmit(57, 1); // 1为挡位数据
-//						F_lcd_firsttime=2;
-//						delay_ms(10);
-//					}
-//					if(F_lcd_cnt==0)
-//					USART_LCD_Transmit(82, 0);//实时数据1
-//					if(F_lcd_cnt==1)
-//					USART_LCD_Transmit(10,2); //实时数据2
-//					if(F_lcd_cnt==2)
-//					USART_LCD_Transmit(57,12); //实时数据3
-//				
-//					F_lcd_cnt++;
-//					if(F_lcd_cnt==3) F_lcd_cnt=0;
+					if(F_lcd_firsttime==0) //上电1s发送一次挡位信息
+					{
+						USART_LCD_Transmit(57, 1); // 1为挡位数据
+						F_lcd_firsttime=2;
+						delay_ms(10);
+					}
+					if(F_lcd_cnt==0)
+					USART_LCD_Transmit(82, 0);//实时数据1
+					if(F_lcd_cnt==1)
+					USART_LCD_Transmit(10,2); //实时数据2
+					if(F_lcd_cnt==2)
+					USART_LCD_Transmit(57,12); //实时数据3
+				
+					F_lcd_cnt++;
+					if(F_lcd_cnt==3) F_lcd_cnt=0;
 					F_lcd_realtime=0;
 				}
 				if (F_HT7038_Read == 1)
