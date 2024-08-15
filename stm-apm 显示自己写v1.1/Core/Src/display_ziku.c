@@ -440,7 +440,152 @@ unsigned char Lcd12864_Write14CnCHAR(unsigned char F_rever, unsigned char x, uns
     }
     return 1;
 }
+void display_ASCIIstring_6x12(unsigned char page, unsigned char column, unsigned char *text)
+{
+    unsigned char i = 0, j, k, n;
+    unsigned char x0, y0;
+    unsigned char *temp_text = text;
+    x0 = page;
+    y0 = column;
 
+    while ((temp_text[i] > 0x00) && (temp_text[i] != '\0'))
+    {
+        if ((temp_text[i] >= 0x20) && (temp_text[i] < 0x7e))
+        {
+            j = temp_text[i] - 0x20;
+            for (n = 0; n < 2; n++)
+            {
+                lcd_address(x0 + n, y0);
+                for (k = 0; k < 6; k++)
+                {
+                    transfer_data(ascii_table_6x12[j][k + 6 * n]);
+                }
+            }
+            i++;
+            y0 += 6;
+        }
+    }
+}
+unsigned char Lcd12864_Write12CnCHAR(unsigned char F_rever, unsigned char x, unsigned char y, unsigned char *cn)
+{
+    unsigned char j, x1, x2, wordNum, k, n, x0, y0;
+    unsigned char *zifuchuan = cn;
+
+    x0 = x;
+    y0 = y;
+    y0 += 0xB0; // 起始列给  求取Y坐标的值
+
+    transfer_command(y0);
+    while (*zifuchuan != '\0') // 字符串结束以0结束
+    {
+        transfer_command(y0); // 设置Y坐标
+        x1 = (x0 >> 4) & 0x0F;
+        x2 = x0 & 0x0F;
+        transfer_command(0x10 + x1);
+        transfer_command(0x00 + x2); // X坐标分为高四位和低四位
+
+        if (*zifuchuan > 0x80)
+        {
+            if (F_rever == 0)
+            {
+                for (wordNum = 0; wordNum < sizeof(CN12CHAR) / 24; wordNum++)
+                {
+                    // 查询要写的字在字库中的位置
+                    if ((CN12CHAR[wordNum].Index[0] == *zifuchuan) && (CN12CHAR[wordNum].Index[1] == *(zifuchuan + 1)))
+                    {
+                        for (j = 0; j < 24; j++) // 写一个字
+                        {
+                            if (j == 12) // 大于等于12时切换作
+                            {
+                                transfer_command(y0 + 1);
+                                transfer_command(0x10 + x1); // 设置列地址高位
+                                transfer_command(0x00 + x2); // 设置列地址低位
+                            }
+                            transfer_data(CN12CHAR[wordNum].Msk[j]);
+                        }
+                        x0 += 12;
+                    }
+                }
+                zifuchuan += 2;
+            }
+            else if (F_rever == 1)
+            {
+                for (wordNum = 0; wordNum < sizeof(CN12CHAR) / 24; wordNum++)
+                {
+                    // 查询要写的字在字库中的位置
+                    if ((CN12CHAR[wordNum].Index[0] == *zifuchuan) && (CN12CHAR[wordNum].Index[1] == *(zifuchuan + 1)))
+                    {
+                        for (j = 0; j < 24; j++) // 写一个字
+                        {
+                            if (j == 12) // 大于等于12时切换作
+                            {
+                                transfer_command(y0 + 1);
+                                transfer_command(0x10 + x1);
+                                transfer_command(0x00 + x2);
+                            }
+                            transfer_data(~(CN12CHAR[wordNum].Msk[j]));
+                        }
+                        x0 += 12;
+                    }
+                }
+                zifuchuan += 2;
+            }
+        }
+        else
+        {
+            if (*zifuchuan == '\r')
+            {
+                y0 = y0 + 2;
+                x0 = 0;
+                zifuchuan++;
+                transfer_command(y0);
+
+                x1 = (x0 >> 4) & 0x0F;
+                x2 = x0 & 0x0F;
+
+                transfer_command(0x10 + x1);
+                transfer_command(0x00 + x2);
+            }
+            else
+            {
+                if ((x0 + 6) > 128)
+                {
+                    x0 = 0;
+                    y0 = y0 + 2;
+                    if (y0 > 63)
+                    {
+                        y0 = 0;
+                    }
+                }
+
+                for (n = 0; n < 2; n++)
+                {
+                    transfer_command(y0 + n);
+
+                    transfer_command(0x10 + x1);
+                    transfer_command(0x00 + x2);
+                    if (F_rever == 0)
+                    {
+                        for (k = 0; k < 6; k++)
+                        {
+                            transfer_data(ascii_table_6x12[*zifuchuan - 0x20][k + 6 * n]);
+                        }
+                    }
+                    else
+                    {
+                        for (k = 0; k < 6; k++)
+                        {
+                            transfer_data(~(ascii_table_6x12[*zifuchuan - 0x20][k + 6 * n]));
+                        }
+                    }
+                }
+                x0 += 6;
+                zifuchuan += 1;
+            }
+        }
+    }
+    return 1;
+}
 void display_ASCIIstring_8x16(unsigned char page,unsigned char column,unsigned char *text)
 {
 	 uchar i=0,j,k,n;

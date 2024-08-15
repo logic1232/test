@@ -40,6 +40,7 @@ extern int read_ptr;   // 读取指针，初始位置为0
 extern volatile unsigned char	tmp_uart_rx[50];
 extern char F_AEorREorALLE; //有功电能0or无功电能1or总电能2标志位
 extern int a1; //菜单界面指针
+
 bool F_initialization=1;
 int F_Y,F_Ypro;
 int i;
@@ -182,128 +183,7 @@ OPEN_CLOSE(); //硬件分合闸信号
 //	timechange()  ;
 	  uart_com_process();   //串口接收函数
 
-	  if(key==KEY_AFFIRM_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F)    //F_MAINormenu==0主界面，F_MAINormenu==1菜单界面
-{
-	F_MAINormenu=7;
-	clear_screen();
-}
 
-
-else if(key==KEY_GOBACK_PRES&&(F_MAINormenu==1||F_MAINormenu==2||F_MAINormenu==4||F_MAINormenu==5||(F_MAINormenu==6&&F_AEorREorALLE==0)||F_MAINormenu==8||F_MAINormenu==9)&&F_gz_disp==0x0F)    //档位保护回主菜单
-{
-	clear_screen();
-	f_f=1;
-	F_Y=0;                                                //回到主界面所有的挡位位置指针啥的全部归零
-	a=0;
-	F_Ypro=0;
-	F_AEorREorALLE=0;
-	F_MAINormenu=10;
-		F_adjustbegin=0;
-	current_page=0;
-	F_jiaozhuned=0;
-	qiehuan=0;
-mima[0]=0;
-	mima[1]=0;
-	mima[2]=0;
-	mima[3]=0;
-}
-else if(key==KEY_GOBACK_PRES&&F_MAINormenu==6&&F_AEorREorALLE!=0&&F_gz_disp==0x0F)   //档位保护回主界面
-{
-		clear_screen();
-	F_AEorREorALLE=0;
-	
-}
-else  if(key==KEY_GOBACK_PRES&&(F_MAINormenu==12||F_MAINormenu==13))
-{
-	clear_screen ();
-	current_page=0;
-	 F_MAINormenu=4;
-}
-else if(key==KEY_GOBACK_PRES&&(F_MAINormenu==10||F_MAINormenu==7||F_MAINormenu==15)&&F_AEorREorALLE==0&&F_gz_disp==0x0F)    //档位保护回主界面
-{
-	a1=0;
-	clear_screen();
-	F_Y=0;                                                //回到主界面所有的挡位位置指针啥的全部归零
-	a=0;
-	F_Ypro=0;
-	F_MAINormenu=0;
-		F_adjustbegin=0;
-	current_page=0;
-	F_jiaozhuned=0;
-	qiehuan=0;
-mima[0]=0;
-	mima[1]=0;
-	mima[2]=0;
-	mima[3]=0;
-}
-else if(key==KEY_UP_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F)     //封面进保护（上下写反了）
-{        
-	
- F_MAINormenu=2;
-clear_screen();
-	
-}else if(key==KEY_LEFT_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F)     //封面进跳闸记录查询（左右写反了）
-{        
-	F_mainchange++;
-	if(F_mainchange>9)
-	{F_mainchange=0;}
-// F_MAINormenu=4;
-clear_screen();
-	
-}
-else if(key==KEY_RIGHRT_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F)     //封面进跳闸记录查询（左右写反了）
-{        
-	F_mainchange--;
-	if(F_mainchange<0)
-	{F_mainchange=9;
-	}
-// F_MAINormenu=4;
-clear_screen();
-	
-}
-else if(key==KEY_DOWN_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F&&waring==true)     //封面进校准界面（左右写反了）
-{        
-	
- F_MAINormenu=15;
-clear_screen();
-	
-}
-
-else if(key==KEY_LEAK_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F)    //漏电试跳
-{
-		if(isfenzha==1)                    //只有在合闸状态下有效
-		{
-			//F_MAINormenu=3;
-			F_LEAK_OPEN_CLOSE=1;
-			F_open=0;
-			USART_LCD_Transmit(7,2) ;
-			//F_FENHEZHA =1;
-			clear_screen();
-		   
-	}
-}else if(key==KEY_OPEN_PRES&&F_MAINormenu==0&&F_gz_disp==0x0F)    //分闸按钮
-{
-		if(isfenzha==1)                           //只有在合闸状态下有效
-		{
-			F_MAINormenu=3;                          //显示相关
-			F_LEAK_OPEN_CLOSE=2;                 //串口发送相关
-			F_open=0;							//串口发送相关
-			USART_LCD_Transmit(7,2) ;
-			F_FENHEZHA =1;                      //显示相关
-		   clear_screen();
-	}
-}
-		else if(key==KEY_GOBACK&&F_MAINormenu==0&&F_gz_disp==0x0F)    //合闸按钮
-{
-		if(isfenzha==0)                           //只有在分闸状态下有效
-		{
-			F_MAINormenu=3;
-			F_LEAK_OPEN_CLOSE=3;
-			USART_LCD_Transmit(7,2) ;
-			F_FENHEZHA =2;
-			clear_screen();
-		}  
-	}
 	 
 if(F_T==5)
 {

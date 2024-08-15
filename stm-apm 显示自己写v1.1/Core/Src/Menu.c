@@ -68,6 +68,7 @@ char f_f = 1;
 int a1; // 菜单界面指针
 extern bool F_initialization;
 char qiehuan = 0; // 密码正确or错误
+bool waring;
 int one = 1;
 volatile unsigned char tim_m3, tim_d3, tim_h3, tim_f3, tim_s3, tim_m3temp, tim_d3temp, tim_h3temp, tim_f3temp, tim_s3temp, tim_y3, tim_y3temp; // 时间相关
 unsigned char nian_qian[3] = {0};                                                                                                              // 时间相关
@@ -558,7 +559,130 @@ void MEUN() // 判断不同菜单的标志位确定展示什么
 
     else
     {
-        if (((F_hezha_state != 0) || (F_fenzha_state != 0)) && (F_gz_disp == 0x0F))
+        if (key == KEY_AFFIRM_PRES && F_MAINormenu == 0) // &&F_gz_disp==0x0F//F_MAINormenu==0主界面，F_MAINormenu==1菜单界面
+        {
+            F_MAINormenu = 7;
+            clear_screen();
+        }
+
+        else if (key == KEY_GOBACK_PRES && (F_MAINormenu == 1 || F_MAINormenu == 2 || F_MAINormenu == 4 || F_MAINormenu == 5 || (F_MAINormenu == 6 && F_AEorREorALLE == 0) || F_MAINormenu == 8 || F_MAINormenu == 9)) // 档位保护回主菜单&&F_gz_disp==0x0F
+        {
+            clear_screen();
+            f_f = 1;
+            F_Y = 0; // 回到主界面所有的挡位位置指针啥的全部归零
+            a = 0;
+            F_Ypro = 0;
+            F_AEorREorALLE = 0;
+            F_MAINormenu = 10;
+            F_adjustbegin = 0;
+            current_page = 0;
+            F_jiaozhuned = 0;
+            qiehuan = 0;
+            mima[0] = 0;
+            mima[1] = 0;
+            mima[2] = 0;
+            mima[3] = 0;
+        }
+        else if (key == KEY_GOBACK_PRES && F_MAINormenu == 6 && F_AEorREorALLE != 0 && F_gz_disp == 0x0F) // 档位保护回主界面
+        {
+            clear_screen();
+            F_AEorREorALLE = 0;
+        }
+        else if (key == KEY_GOBACK_PRES && (F_MAINormenu == 12 || F_MAINormenu == 13))
+        {
+            clear_screen();
+            current_page = 0;
+            F_MAINormenu = 4;
+        }
+        else if (key == KEY_GOBACK_PRES && (F_MAINormenu == 10 || F_MAINormenu == 7 || F_MAINormenu == 15) && F_AEorREorALLE == 0) // 档位保护回主界面&&F_gz_disp==0x0F
+        {
+            a1 = 0;
+            clear_screen();
+            F_Y = 0; // 回到主界面所有的挡位位置指针啥的全部归零
+            a = 0;
+            F_Ypro = 0;
+            F_MAINormenu = 0;
+            F_adjustbegin = 0;
+            current_page = 0;
+            F_jiaozhuned = 0;
+            qiehuan = 0;
+            mima[0] = 0;
+            mima[1] = 0;
+            mima[2] = 0;
+            mima[3] = 0;
+        }
+        else if (key == KEY_UP_PRES && F_MAINormenu == 0) // 封面进保护（上下写反了）&&F_gz_disp==0x0F
+        {
+
+            F_MAINormenu = 2;
+            clear_screen();
+        }
+        else if (key == KEY_LEFT_PRES && F_MAINormenu == 0 && F_gz_disp == 0x0F) // 封面进跳闸记录查询（左右写反了）
+        {
+            F_mainchange++;
+            if (F_mainchange > 9)
+            {
+                F_mainchange = 0;
+            }
+            // F_MAINormenu=4;
+            clear_screen();
+        }
+        else if (key == KEY_RIGHRT_PRES && F_MAINormenu == 0 && F_gz_disp == 0x0F) // 封面进跳闸记录查询（左右写反了）
+        {
+            F_mainchange--;
+            if (F_mainchange < 0)
+            {
+                F_mainchange = 9;
+            }
+            // F_MAINormenu=4;
+            clear_screen();
+        }
+        else if (key == KEY_DOWN_PRES && F_MAINormenu == 0 && waring == true) // 封面进校准界面（左右写反了）&&F_gz_disp==0x0F
+        {
+
+            F_MAINormenu = 15;
+            clear_screen();
+        }
+
+        else if (key == KEY_LEAK_PRES && F_MAINormenu == 0 && F_gz_disp == 0x0F) // 漏电试跳
+        {
+            if (isfenzha == 1) // 只有在合闸状态下有效
+            {
+                // F_MAINormenu=3;
+                F_LEAK_OPEN_CLOSE = 1;
+                F_open = 0;
+                USART_LCD_Transmit(7, 2);
+                // F_FENHEZHA =1;
+                clear_screen();
+            }
+        }
+        else if (key == KEY_OPEN_PRES && F_MAINormenu == 0 && F_gz_disp == 0x0F) // 分闸按钮
+        {
+            if (isfenzha == 1) // 只有在合闸状态下有效
+            {
+                F_MAINormenu = 3;      // 显示相关
+                F_LEAK_OPEN_CLOSE = 2; // 串口发送相关
+                F_open = 0;            // 串口发送相关
+                USART_LCD_Transmit(7, 2);
+                F_FENHEZHA = 1; // 显示相关
+                clear_screen();
+            }
+        }
+        else if (key == KEY_GOBACK_PRES && F_MAINormenu == 0) // 合闸按钮&&F_gz_disp==0x0F
+        {
+            	F_hezha_state = 1;
+            	clear_define_screen(0,2,0,128);
+            if (isfenzha == 0) // 只有在分闸状态下有效
+            {
+                F_MAINormenu = 3;
+                F_LEAK_OPEN_CLOSE = 3;
+                USART_LCD_Transmit(7, 2);
+                F_FENHEZHA = 2;
+                clear_define_screen(0, 2, 0, 128);
+            }
+        }
+
+        else if (((F_hezha_state != 0) || (F_fenzha_state != 0)) && (F_MAINormenu == 0)) //&& (F_gz_disp == 0x0F)
         {
             if (F_hezha_state == 1)
             {
@@ -566,14 +690,20 @@ void MEUN() // 判断不同菜单的标志位确定展示什么
             }
             else if (F_fenzha_state == 1)
             {
-                fenzhaing(); // 正在分闸
+                // fenzhaing(); // 正在分闸
             }
         }
-        else if (F_gz_disp == 0x0F) // 未发生故障
+        else if (1) // 未发生故障
         {
+            F_gz_disp = A_qy;
             if (F_MAINormenu == 0)
             {
-                meun();
+                if (F_gz_disp == 0x0F)
+                    meun();
+                else if (F_gz_disp != 0x0F)
+                {
+                    problemdisp();
+                }
             }
             else if (F_MAINormenu == 7 && F_Y == 0)
             {
@@ -681,15 +811,15 @@ void MEUN() // 判断不同菜单的标志位确定展示什么
                 displayExceededVoltages();
             }
         }
-        else if (F_gz_disp != 0x0F) // 有故障,显示故障相关界面
-        {
-            problemdisp();
-            if (key == KEY_AFFIRM_PRES) // 故障状态按下确定键，实现故障显示退出
-            {
+        //        else if (F_gz_disp != 0x0F) // 有故障,显示故障相关界面
+        //        {
+        //            problemdisp();
+        //            if (key == KEY_AFFIRM_PRES) // 故障状态按下确定键，实现故障显示退出
+        //            {
 
-                USART_LCD_Transmit(1, 4);
-            }
-        }
+        //                USART_LCD_Transmit(1, 4);
+        //            }
+        //        }
     }
 }
 void meun1() // 菜单1
@@ -2542,7 +2672,8 @@ void fenzhaing() // 正在分闸中界面
 }
 void hezhaing() // 正在合闸中界面
 {
-    Lcd12864_Write16CnCHAR(0, 32, 0, "\r  正在合闸...");
+
+    Lcd12864_Write12CnCHAR(0, 32, 0, "试合闸中...");
     if (isfenzha == 1)
     {
         F_MAINormenu = 0;
@@ -2550,56 +2681,55 @@ void hezhaing() // 正在合闸中界面
 }
 void problemdisp() // 故障显示
 {
+
+    Lcd12864_Write12CnCHAR(0, 0, 0, " 分闸  按复位键试合闸");
+    Lcd12864_Write12CnCHAR(0, 0, 2, "类型:");
+    Lcd12864_Write12CnCHAR(0, 0, 4, "参数:");
+
     if (F_gz_disp == A_qy || F_gz_disp == B_qy || F_gz_disp == C_qy) // 欠压故障
     {
         xianshishuju(gz_disp);
 
-        Lcd12864_Write16CnCHAR(0, 32, 0, "欠压故障\r 故障值");
+        Lcd12864_Write12CnCHAR(0, 32, 2, "欠压");
 
         if (F_gz_disp == A_qy)
         {
-            display_ASCIIstring_8x16(3, 75, "Ua:    V");
+            display_ASCIIstring_6x12(5, 110, "A");
         }
         else if (F_gz_disp == B_qy)
         {
-            display_ASCIIstring_8x16(3, 75, "Ub:    V");
+            display_ASCIIstring_6x12(5, 110, "B");
         }
         else if (F_gz_disp == C_qy)
         {
-            display_ASCIIstring_8x16(3, 75, "Uc:    V");
+            display_ASCIIstring_6x12(5, 110, "C");
         }
-        display_ASCIIstring_8x16(3, 100, zifu_dian);
-
-        Lcd12864_Write16CnCHAR(0, 0, 4, " 重合闸次数:");
-        xianshishuju(F_ch);
-        display_ASCIIstring_8x16(5, 110, zifu_dian);
-
-        Lcd12864_Write16CnCHAR(0, 0, 6, " 欠压档位:");
-        display_ASCIIstring_8x16(7, 88, DIANYA_1[Vol_q]);
+        display_ASCIIstring_6x12(5, 32, zifu_dian);
+        Lcd12864_Write12CnCHAR(0, 55, 4, "V");
+        Lcd12864_Write12CnCHAR(0, 70, 4, "相别:");
     }
     if (F_gz_disp == A_QX || F_gz_disp == B_QX || F_gz_disp == C_QX) // 缺相
     {
 
         xianshishuju(gz_disp);
-        Lcd12864_Write16CnCHAR(0, 32, 0, "缺相故障\r 故障值");
+
+        Lcd12864_Write12CnCHAR(0, 32, 2, "缺相");
 
         if (F_gz_disp == A_QX)
         {
-            display_ASCIIstring_8x16(3, 75, "Ua:    V");
+            display_ASCIIstring_6x12(5, 110, "A");
         }
         else if (F_gz_disp == B_QX)
         {
-            display_ASCIIstring_8x16(3, 75, "Ub:    V");
+            display_ASCIIstring_6x12(5, 110, "B");
         }
         else if (F_gz_disp == C_QX)
         {
-            display_ASCIIstring_8x16(3, 75, "Uc:    V");
+            display_ASCIIstring_6x12(5, 110, "C");
         }
-        display_ASCIIstring_8x16(3, 100, zifu_dian);
-
-        Lcd12864_Write16CnCHAR(0, 0, 4, " 重合闸次数:");
-        xianshishuju(F_ch);
-        display_ASCIIstring_8x16(5, 110, zifu_dian);
+        display_ASCIIstring_6x12(5, 32, zifu_dian);
+        Lcd12864_Write12CnCHAR(0, 55, 4, "V");
+        Lcd12864_Write12CnCHAR(0, 70, 4, "相别:");
     }
     // 过压“GY”
     if (F_gz_disp == A_gy || F_gz_disp == B_gy || F_gz_disp == C_gy)
@@ -2607,42 +2737,33 @@ void problemdisp() // 故障显示
 
         xianshishuju(gz_disp);
 
-        Lcd12864_Write16CnCHAR(0, 32, 0, "过压故障\r 故障值");
+        display_ASCIIstring_6x12(5, 32, zifu_dian);
+        Lcd12864_Write12CnCHAR(0, 32, 2, "过压");
+        Lcd12864_Write12CnCHAR(0, 55, 4, "V");
+        Lcd12864_Write12CnCHAR(0, 70, 4, "相别:");
 
         if (F_gz_disp == A_gy)
         {
-            display_ASCIIstring_8x16(3, 75, "Ua:    V");
+            display_ASCIIstring_6x12(5, 110, "A");
         }
         else if (F_gz_disp == B_gy)
         {
-            display_ASCIIstring_8x16(3, 75, "Ub:    V");
+            display_ASCIIstring_6x12(5, 110, "B");
         }
         else if (F_gz_disp == C_gy)
         {
-            display_ASCIIstring_8x16(3, 75, "Uc:    V");
+            display_ASCIIstring_6x12(5, 110, "C");
         }
-        display_ASCIIstring_8x16(3, 100, zifu_dian);
-
-        Lcd12864_Write16CnCHAR(0, 0, 4, " 重合闸次数:");
-        xianshishuju(F_ch);
-
-        display_ASCIIstring_8x16(5, 110, zifu_dian);
-        Lcd12864_Write16CnCHAR(0, 0, 6, " 过压档位:");
-        display_ASCIIstring_8x16(7, 88, DIANYA[Vol_g]);
     }
     // 漏电“ld”
     if (F_gz_disp == L_hb)
     {
 
         xianshishuju(gz_disp);
-        Lcd12864_Write16CnCHAR(0, 32, 0, "漏电故障\r 故障值      mA");
-        display_ASCIIstring_8x16(3, 76, zifu_dian);
-        Lcd12864_Write16CnCHAR(0, 0, 4, " 重合闸次数:");
-        xianshishuju(F_ch);
-
-        display_ASCIIstring_8x16(5, 110, zifu_dian);
-        Lcd12864_Write16CnCHAR(0, 0, 6, " 额定漏电:");
-        display_ASCIIstring_8x16(7, 88, dianliu[D_LCur]);
+        Lcd12864_Write12CnCHAR(0, 32, 2, "漏电");
+        // Lcd12864_Write12CnCHAR(0,32,0,"漏电故障\r 故障值      mA");
+        display_ASCIIstring_6x12(5, 32, zifu_dian);
+        Lcd12864_Write12CnCHAR(0, 55, 4, "mA");
     }
     // 过流“GL”
     if ((F_gz_disp > L_hb) && (F_gz_disp < Gz_TD))
@@ -2650,68 +2771,66 @@ void problemdisp() // 故障显示
 
         SET_D_Cur = D_Cur;
         I_VAL_handle();
-        //                gz_disp1=SET_I_VAL ;
-        xianshishuju(gz_disp);
 
-        Lcd12864_Write16CnCHAR(0, 32, 0, "过流故障\r 故障值");
+        xianshishuju(gz_disp);
+        Lcd12864_Write12CnCHAR(0, 70, 4, "相别:");
+        Lcd12864_Write12CnCHAR(0, 32, 2, "过载");
+
         if (F_gz_disp == A_gl)
         {
-            display_ASCIIstring_8x16(3, 75, "Ia:    A");
+            display_ASCIIstring_6x12(5, 110, "A");
         }
         else if (F_gz_disp == B_gl)
         {
-            display_ASCIIstring_8x16(3, 75, "Ib:    A");
+            display_ASCIIstring_6x12(5, 110, "B");
         }
         else if (F_gz_disp == C_gl)
         {
-            display_ASCIIstring_8x16(3, 75, "Ic:    A");
+            display_ASCIIstring_6x12(5, 110, "C");
         }
         else if (F_gz_disp == N_gl)
         {
-            display_ASCIIstring_8x16(3, 75, "In:    A");
+            display_ASCIIstring_6x12(5, 110, "N");
         }
-        display_ASCIIstring_8x16(3, 100, zifu_dian);
-
-        Lcd12864_Write16CnCHAR(0, 0, 4, " 重合闸次数:");
-        xianshishuju(F_ch);
-
-        display_ASCIIstring_8x16(5, 110, zifu_dian);
-        Lcd12864_Write16CnCHAR(0, 0, 6, " 电流档位:    ");
+        display_ASCIIstring_6x12(5, 32, zifu_dian);
 
         I_VAL_handle();
 
         xianshishuju_dianliu(SET_I_VAL);
-
-        display_ASCIIstring_8x16(7, 92, zifu_dian); // 电流保存
     }
     // 停电“tD”
     if (F_gz_disp == Gz_TD)
     {
 
-        Lcd12864_Write16CnCHAR(0, 32, 0, "停电故障");
+        Lcd12864_Write12CnCHAR(0, 32, 2, "停电");
+        Lcd12864_Write12CnCHAR(0, 32, 4, "无");
     }
     // 手动和短路为未知“UN”
     if (F_gz_disp == FZ_UK)
     {
-
-        Lcd12864_Write16CnCHAR(0, 32, 0, "未知故障");
+        Lcd12864_Write12CnCHAR(0, 32, 2, "手动分闸");
+        //				Lcd12864_Write12CnCHAR(0,32,2,"未知");
+        Lcd12864_Write12CnCHAR(0, 32, 4, "无");
     }
     // 按键“AJ”
     if (F_gz_disp == FZ_AJ)
     {
 
-        Lcd12864_Write16CnCHAR(0, 32, 0, "按键分闸");
+        Lcd12864_Write12CnCHAR(0, 32, 2, "按键分闸");
+        Lcd12864_Write12CnCHAR(0, 32, 4, "无");
     }
     // 远程“YC”
     if (F_gz_disp == FZ_YC)
     {
 
-        Lcd12864_Write16CnCHAR(0, 32, 0, "远程分闸");
+        Lcd12864_Write12CnCHAR(0, 32, 2, "远程分闸");
+        Lcd12864_Write12CnCHAR(0, 32, 4, "无");
     }
     if (F_gz_disp == Gz_QL)
     {
 
-        Lcd12864_Write16CnCHAR(0, 32, 0, "缺零分闸");
+        Lcd12864_Write12CnCHAR(0, 32, 2, "缺零");
+        Lcd12864_Write12CnCHAR(0, 32, 4, "无");
     }
     if (F_gz_disp == Tem_IN_N)
     {
@@ -4581,15 +4700,15 @@ double parse_voltage1(const unsigned char *voltage_str)
     return atof((const char *)voltage_str);
 }
 bool exceeded[15] = {false};
-bool waring;
+
 int upper_hz;
 int upper_q;
 double Cos;
 int upper_TEM;
 int waring_num;
 int lower_voltage;
- int U_UB;
- int I_UB;
+int U_UB;
+int I_UB;
 void waring_compare()
 {
 
@@ -4608,8 +4727,8 @@ void waring_compare()
     upper_q = parse_voltage(q_waring[Q_warning], 4);
     int upper_s = parse_voltage(s_warning[S_warning], 4);
     Cos = parse_voltage1(Cos_warning[cos_warning]);
-   U_UB = parse_voltage(u_UB_waring[U_UB_waring], 1);
-   I_UB = parse_voltage(i_UB_waring[I_UB_waring], 1);
+    U_UB = parse_voltage(u_UB_waring[U_UB_waring], 1);
+    I_UB = parse_voltage(i_UB_waring[I_UB_waring], 1);
     int Power_c = parse_voltage(Powerconsumption_warning[powerconsumption_warning], 3);
 
     if (HT7038_buf11[1] > upper_voltage || HT7038_buf11[2] > upper_voltage || HT7038_buf11[3] > upper_voltage)
