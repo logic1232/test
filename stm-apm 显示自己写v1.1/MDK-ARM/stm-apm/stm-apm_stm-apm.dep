@@ -394,7 +394,7 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x66BD6985)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x66BD6985)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x66BD6985)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x66BD6985)
-F (..\Core\Src\Menu.c)(0x66BDE09B)(--c99 -c --cpu Cortex-M0+ -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include -I ..\Drivers\STM32F0xx_HAL_Driver\Inc -I ..\Drivers\STM32F0xx_HAL_Driver\Inc-I.\RTE\_stm-apm-I"D:\keil 5\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\keil 5\Geehy\APM32F0xx_DFP\1.0.7\Device\Device\Geehy\APM32F0xx\Include"-D__UVISION_VERSION="532" -D_RTE_ -DAPM32F030XC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F030xC-o stm-apm\menu.o --omf_browse stm-apm\menu.crf --depend stm-apm\menu.d)
+F (..\Core\Src\Menu.c)(0x66C01902)(--c99 -c --cpu Cortex-M0+ -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include -I ..\Drivers\STM32F0xx_HAL_Driver\Inc -I ..\Drivers\STM32F0xx_HAL_Driver\Inc-I.\RTE\_stm-apm-I"D:\keil 5\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\keil 5\Geehy\APM32F0xx_DFP\1.0.7\Device\Device\Geehy\APM32F0xx\Include"-D__UVISION_VERSION="532" -D_RTE_ -DAPM32F030XC -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F030xC-o stm-apm\menu.o --omf_browse stm-apm\menu.crf --depend stm-apm\menu.d)
 I (../Core/Inc/menu.h)(0x66BD6985)
 I (D:\keil 5\ARM\ARMCC\include\stdint.h)(0x66529400)
 I (../Core/Inc/lcd.h)(0x66BD6985)

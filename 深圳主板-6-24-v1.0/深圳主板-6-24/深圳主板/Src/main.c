@@ -10759,12 +10759,12 @@ n分钟更新一次电费，则需要计算n分钟内消耗的电量*该时段的电价
 *****************************/
 void Time_bill(void)//1分钟一次
 {
-	signed int A_Phase_Vol = HT7038_buf[1];
-	signed int B_Phase_Vol = HT7038_buf[2];
-	signed int C_Phase_Vol = HT7038_buf[3];
-	signed int A_Phase_Cur = HT7038_buf[4];
-	signed int B_Phase_Cur = HT7038_buf[5];
-	signed int C_Phase_Cur = HT7038_buf[6];
+	unsigned int A_Phase_Vol = HT7038_buf[1];
+	unsigned int B_Phase_Vol = HT7038_buf[2];
+	unsigned int C_Phase_Vol = HT7038_buf[3];
+	unsigned int A_Phase_Cur = HT7038_buf[4];
+	unsigned int B_Phase_Cur = HT7038_buf[5];
+	unsigned int C_Phase_Cur = HT7038_buf[6];
 
 	unsigned char hour = stimestructure.Hours;
 	
@@ -10799,34 +10799,18 @@ void Time_bill(void)//1分钟一次
 	
 	
 	/*******电压电流不平衡度*************/
-	int Average_Vol,Average_Cur,deltaVAC,deltaVBC,deltaVAB,deltaVAve,deltaCurAC,deltaCurBC,deltaCurAB,deltaCurAve;
+	int Average_Vol,Average_Cur;
 
 	 Average_Vol=(A_Phase_Vol+B_Phase_Vol+C_Phase_Vol)/3;
 	 Average_Cur=(A_Phase_Cur+B_Phase_Cur+C_Phase_Cur)/3;
 	
-	deltaVAC=abs(A_Phase_Vol-C_Phase_Vol);
-	deltaVAB=abs(A_Phase_Vol-B_Phase_Vol);
-	deltaVBC=abs(B_Phase_Vol-C_Phase_Vol);
-	deltaCurAC=abs(A_Phase_Cur-C_Phase_Cur);
-	deltaCurAB=abs(A_Phase_Cur-B_Phase_Cur);
-	deltaCurBC=abs(B_Phase_Cur-C_Phase_Cur);
-	
-	deltaVAve=(deltaVAC+deltaVAB+deltaVBC)/3;
-	deltaCurAve=(deltaCurAC+deltaCurAB+deltaCurBC)/3;
-	
-	Unbal_Vol=(float)deltaVAve/(float)Average_Vol;
-	Unbal_Vol=1-Unbal_Vol;
-	
-	Unbal_Cur=(float)deltaCurAve/(float)Average_Cur;
-	Unbal_Cur=1-Unbal_Cur;
-	
-//	if((A_Phase_Vol>=B_Phase_Vol)&&(A_Phase_Vol>=C_Phase_Vol))          Unbal_Vol=(float)A_Phase_Vol/(float)Average_Vol;  //Unbal_Vol为电压不平衡度
-//	else if(((B_Phase_Vol>=A_Phase_Vol)&&(B_Phase_Vol>=C_Phase_Vol)))   Unbal_Vol=(float)B_Phase_Vol/(float)Average_Vol;
-//	else if(((C_Phase_Vol>=A_Phase_Vol)&&(C_Phase_Vol>=B_Phase_Vol)))   Unbal_Vol=(float)C_Phase_Vol/(float)Average_Vol;
+	if((A_Phase_Vol>=B_Phase_Vol)&&(A_Phase_Vol>=C_Phase_Vol))          Unbal_Vol=A_Phase_Vol/Average_Vol;  //Unbal_Vol为电压不平衡度
+	else if(((B_Phase_Vol>=A_Phase_Vol)&&(B_Phase_Vol>=C_Phase_Vol)))   Unbal_Vol=B_Phase_Vol/Average_Vol;
+	else if(((C_Phase_Vol>=A_Phase_Vol)&&(C_Phase_Vol>=B_Phase_Vol)))   Unbal_Vol=C_Phase_Vol/Average_Vol;
 
-//	if((A_Phase_Cur>=B_Phase_Cur)&&(A_Phase_Cur>=C_Phase_Cur))          Unbal_Cur=(float)A_Phase_Cur/(float)Average_Cur;  //Unbal_Cur 为电流不平衡度
-//	else if(((B_Phase_Cur>=A_Phase_Cur)&&(B_Phase_Cur>=C_Phase_Cur)))   Unbal_Cur=(float)B_Phase_Cur/(float)Average_Cur;
-//	else if(((C_Phase_Cur>=A_Phase_Cur)&&(C_Phase_Cur>=B_Phase_Cur)))   Unbal_Cur=(float)C_Phase_Cur/(float)Average_Cur;
+	if((A_Phase_Cur>=B_Phase_Cur)&&(A_Phase_Cur>=C_Phase_Cur))          Unbal_Cur=A_Phase_Cur/Average_Cur;  //Unbal_Cur 为电流不平衡度
+	else if(((B_Phase_Cur>=A_Phase_Cur)&&(B_Phase_Cur>=C_Phase_Cur)))   Unbal_Cur=B_Phase_Cur/Average_Cur;
+	else if(((C_Phase_Cur>=A_Phase_Cur)&&(C_Phase_Cur>=B_Phase_Cur)))   Unbal_Cur=C_Phase_Cur/Average_Cur;
 	
 	
 	/*******需量：周期15mins，滑差1分钟 ,一分钟运行一次************/
@@ -11106,32 +11090,32 @@ int main(void)
 		HAL_ADC_Start_DMA(&hadc1,ADC_ConvertedValue,8);
 		
 		
-//		
-//    /* USER CODE END 2 */
-//		uint8_t array_test[1]={0x55};
-//    /* Infinite loop */
-//    /* USER CODE BEGIN WHILE */
-//		uint8_t buffercui[180];
-//		  for (int i = 0; i < 20; i++) {
-//        buffercui[9*i] = 0XFF;
-//			   buffercui[9*i+1] = 0XFF;
-//			   buffercui[9*i+2] = 0XFF;
-//			   buffercui[9*i+3] = 0XFF;
-//			   buffercui[9*i+4] = 0XFF;
-//			   buffercui[9*i+5] = 0XFF;
-//			   buffercui[9*i+6] = 0XFF;
-//			   buffercui[9*i+7] = 0XFF;
-//			   buffercui[9*i+8] = 0XFF;
-//			 
-//			  
-//			  
-//    }
-//			
-//			MODIFY_EEP_W(0,buffercui,180,0xA0);
-//	gz_disp=2222;
-//Write_Record(1,0);
-//	Write_Record(1,0);  
-//EEPROM_R(0,buffercui,180,0xA0);
+		
+    /* USER CODE END 2 */
+		uint8_t array_test[1]={0x55};
+    /* Infinite loop */
+    /* USER CODE BEGIN WHILE */
+		uint8_t buffercui[180];
+		  for (int i = 0; i < 20; i++) {
+        buffercui[9*i] = 0XFF;
+			   buffercui[9*i+1] = 0XFF;
+			   buffercui[9*i+2] = 0XFF;
+			   buffercui[9*i+3] = 0XFF;
+			   buffercui[9*i+4] = 0XFF;
+			   buffercui[9*i+5] = 0XFF;
+			   buffercui[9*i+6] = 0XFF;
+			   buffercui[9*i+7] = 0XFF;
+			   buffercui[9*i+8] = 0XFF;
+			 
+			  
+			  
+    }
+			
+			MODIFY_EEP_W(0,buffercui,180,0xA0);
+	gz_disp=2222;
+Write_Record(1,0);
+	Write_Record(1,0);
+EEPROM_R(0,buffercui,180,0xA0);
     while (1)
     {
 			
@@ -11154,21 +11138,21 @@ int main(void)
 						USART_LCD_Transmit(90,13);
 						USART_LCD_Transmit(90,14);
 					HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-					if(F_lcd_firsttime==0) //上电1s发送一次挡位信息
-					{
-						USART_LCD_Transmit(57, 1); // 1为挡位数据
-						F_lcd_firsttime=2;
-						delay_ms(10);
-					}
-					if(F_lcd_cnt==0)
-					USART_LCD_Transmit(82, 0);//实时数据1
-					if(F_lcd_cnt==1)
-					USART_LCD_Transmit(10,2); //实时数据2
-					if(F_lcd_cnt==2)
-					USART_LCD_Transmit(57,12); //实时数据3
-				
-					F_lcd_cnt++;
-					if(F_lcd_cnt==3) F_lcd_cnt=0;
+//					if(F_lcd_firsttime==0) //上电1s发送一次挡位信息
+//					{
+//						USART_LCD_Transmit(57, 1); // 1为挡位数据
+//						F_lcd_firsttime=2;
+//						delay_ms(10);
+//					}
+//					if(F_lcd_cnt==0)
+//					USART_LCD_Transmit(82, 0);//实时数据1
+//					if(F_lcd_cnt==1)
+//					USART_LCD_Transmit(10,2); //实时数据2
+//					if(F_lcd_cnt==2)
+//					USART_LCD_Transmit(57,12); //实时数据3
+//				
+//					F_lcd_cnt++;
+//					if(F_lcd_cnt==3) F_lcd_cnt=0;
 					F_lcd_realtime=0;
 				}
 				if (F_HT7038_Read == 1)

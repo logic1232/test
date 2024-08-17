@@ -3,7 +3,7 @@
 <title>Static Call Graph - [stm-apm\stm-apm.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image stm-apm\stm-apm.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Aug 15 19:03:58 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Aug 17 11:29:09 2024
 <BR><P>
 <H3>Maximum Stack Usage =        416 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -561,7 +561,8 @@ Global Symbols
 <P><STRONG><a name="[a9]"></a>__aeabi_idivmod</STRONG> (Thumb, 326 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_idivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_LCD_process
+<BR>[Called By]<UL><LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waring_compare
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_LCD_process
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
 </UL>
 
@@ -1734,7 +1735,7 @@ Global Symbols
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_date
 </UL>
 
-<P><STRONG><a name="[11d]"></a>MEUN</STRONG> (Thumb, 912 bytes, Stack size 24 bytes, menu.o(i.MEUN))
+<P><STRONG><a name="[11d]"></a>MEUN</STRONG> (Thumb, 910 bytes, Stack size 24 bytes, menu.o(i.MEUN))
 <BR><BR>[Stack]<UL><LI>Max Depth = 416 + Unknown Stack Size
 <LI>Call Chain = MEUN &rArr; warning_setting &rArr; disp_list &rArr; Lcd12864_Write14CnCHAR &rArr; transfer_data
 </UL>
@@ -2946,7 +2947,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;faultdisp
 </UL>
 
-<P><STRONG><a name="[174]"></a>waring_compare</STRONG> (Thumb, 774 bytes, Stack size 56 bytes, menu.o(i.waring_compare))
+<P><STRONG><a name="[174]"></a>waring_compare</STRONG> (Thumb, 790 bytes, Stack size 56 bytes, menu.o(i.waring_compare))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = waring_compare &rArr; parse_voltage &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2955,6 +2956,7 @@ Global Symbols
 <LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_voltage
 <LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>

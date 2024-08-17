@@ -695,7 +695,7 @@ void MEUN() // 判断不同菜单的标志位确定展示什么
         }
         else if (1) // 未发生故障
         {
-            F_gz_disp = A_qy;
+//            F_gz_disp = A_qy;
             if (F_MAINormenu == 0)
             {
                 if (F_gz_disp == 0x0F)
@@ -4827,7 +4827,7 @@ void waring_compare()
     }
     else
         exceeded[12] = false;
-    if (HT7038_buf11[44] > U_UB)
+    if ((HT7038_buf11[44]/10) < U_UB)
     {
         exceeded[13] = true; // 电压不平衡超上限
         anyExceeded = true;
@@ -4835,7 +4835,7 @@ void waring_compare()
     }
     else
         exceeded[13] = false;
-    if (HT7038_buf11[45] > I_UB)
+    if ((HT7038_buf11[45]/10) < I_UB)
     {
         exceeded[14] = true; // 电流不平衡超上限
         anyExceeded = true;
